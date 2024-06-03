@@ -1,0 +1,22 @@
+---
+title: "Fracking Oil Loss"
+author: "Hannah Marszalek"
+date: "2024-06-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readxl)
+library(janitor)
+
+oil_loss <- read_excel("~/Desktop/InsideClimateNews/combined_h8.xlsx") %>% 
+  clean_names()
+```
+
+```{r}
+
+```
