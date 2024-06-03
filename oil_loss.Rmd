@@ -6,19 +6,18 @@ output: html_document
 ---
 
 Hannah Marszalek
+hmars@terpmail.umd.edu
 June 6, 2024
 
-Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 — enough oil to fill 37 Olympic swimming pools.
+Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 — enough oil to fill 37 Olympic swimming pools. The companies are required to fill out a form known as an H-8 and submit it to the Railroad Commission of Texas each time such an event occurs (https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf), but this information leaves room for plenty of questions regarding the effects and frequency of such events.
 
-While overall there have been more barrels recovered than net barrels lost, the number of barrels that have been lost has been on a steady decline since 2017.
+The number of barrels lost has been on a steady decline since 2017 with 5,519 barrels lost in 2023, but this does not make these losses any less significant considering only 3,453 (about 60%) of these barrels were recovered. 
 
 I could potentially try to talk to someone who lives near these fracking locations to see how they feel about it.
 
 Audience: if I stick with just Texas, the target audience is the people who live there since they are potentially being affected.
 
-Future steps for this include gaining a better understanding of the remedial process and looking more into the incidents that have occurred in the counties with the highest numbers of losses.
-
-https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf
+I would like to gather information that will help me gain a better understanding of the remedial process following a spill and information that sheds light on the incidents that have occurred in the counties with the highest numbers of losses. For example, 26,199 barrels of crude oil were lost in Crockett County in 2019, and since this was the highest loss in that county out of all the years, it makes me wonder what hapepened that year that made it so much worse. Regarding the remedial process, many of the entries say there was "soil remediation" but they do not provide any detail as to what that actually entails.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -140,6 +139,20 @@ oil_loss %>%
   group_by(county) %>% 
   summarize(total_incidents = n()) %>%
   arrange(desc(total_incidents))
+
+#midland county
+oil_loss %>% 
+  filter(county=="MIDLAND") %>% 
+  filter(type_liquid=="Crude") %>%
+  group_by(master_year) %>% 
+  summarize(total_lost = sum(net_loss, na.rm=TRUE))
+
+#crockett county
+oil_loss %>% 
+  filter(county=="CROCKETT") %>% 
+  filter(type_liquid=="Crude") %>%
+  group_by(master_year) %>% 
+  summarize(total_lost = sum(net_loss, na.rm=TRUE))
 
 #crockett has the highest total lost, midland has the most incidents
 ```
