@@ -8,9 +8,17 @@ output: html_document
 Hannah Marszalek
 June 6, 2024
 
-Every year, oil companies lose thousands of barrels of oil while fracking.
+Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 — enough oil to fill 37 Olympic swimming pools.
 
 While overall there have been more barrels recovered than net barrels lost, the number of barrels that have been lost has been on a steady decline since 2017.
+
+I could potentially try to talk to someone who lives near these fracking locations to see how they feel about it.
+
+Audience: if I stick with just Texas, the target audience is the people who live there since they are potentially being affected.
+
+Future steps for this include gaining a better understanding of the remedial process and looking more into the incidents that have occurred in the counties with the highest numbers of losses.
+
+https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -25,13 +33,15 @@ oil_loss <- read_excel("~/Desktop/GitHub/DJNF-ICN/combined_h8.xlsx") %>%
   clean_names()
 ```
 
-## counting the number of incidents per company
+## counting the number of reported incidents per company
 ```{r}
+#totals across all years
 companies <- oil_loss %>% 
   group_by(operator_number) %>% 
   count() %>% 
   arrange(desc(n))
 
+#totals by year and company
 companies_years <- oil_loss %>% 
   group_by(operator_number, master_year) %>% 
   count() %>% 
@@ -43,6 +53,7 @@ companies_years <- oil_loss %>%
 sum(oil_loss$net_loss) * 42
 #24,489,864 gallons of crude oil and gas well liquids have been lost since 2009!
 
+#net loss of only crude oil per company
 net_loss <- oil_loss %>% 
   filter(type_liquid=="Crude") %>% 
   select(operator_number, net_loss) %>% 
@@ -50,7 +61,7 @@ net_loss <- oil_loss %>%
   summarize(total_barrels = sum(net_loss, na.rm=TRUE)) %>% 
   arrange(desc(total_barrels))
 
-#looking at average
+#looking at average lost per company
 oil_loss %>%
   filter(type_liquid=="Crude") %>% 
   select(operator_number, net_loss) %>% 
@@ -59,26 +70,77 @@ oil_loss %>%
   arrange(desc(avg_barrels))
 ```
 
-##looking at a yearly view
+## looking at a yearly view
 ```{r}
-#net loss
+#net loss of crude oil by year
 loss_per_year <- oil_loss %>% 
   filter(type_liquid=="Crude") %>%
   group_by(master_year) %>% 
   summarize(total_loss = sum(net_loss, na.rm=TRUE))
 
-ggplot(loss_per_year, aes(x=master_year, y=total_loss)) +
-  geom_line()
-
-#recovered
+#amount recovered
 sum(oil_loss$recovered) #the number of recovered barrels is more than the net loss of barrels, but still not great
 
+#recovered crude oil by year
 recovered_per_year <- oil_loss %>% 
   filter(type_liquid=="Crude") %>%
   group_by(master_year) %>% 
   summarize(total_recovered = sum(recovered, na.rm=TRUE))
 
+#while net loss has been on the decline in recent years, in 2023, still only about 60% of lost oil was recovered (3453/5519), as can be seen here:
+oil_loss %>% 
+  filter(master_year==2023) %>% 
+  filter(type_liquid=="Crude") %>% 
+  summarize(total_lost = sum(net_loss, na.rm=TRUE))
+
+oil_loss %>% 
+  filter(master_year==2023) %>% 
+  filter(type_liquid=="Crude") %>%
+  summarize(total_recovered = sum(recovered, na.rm=TRUE))
+```
+
+## some quick graphs to visualize the yearly values
+```{r}
+#net loss graph
+ggplot(loss_per_year, aes(x=master_year, y=total_loss)) +
+  geom_line() +
+  labs(title = "Net loss of crude oil at an all time low since 2009")
+```
+
+```{r}
+#recovered barrels graph
 ggplot(recovered_per_year, aes(x=master_year, y=total_recovered)) +
   geom_line() +
-  labs(title = "Number of Recovered Barrels on the Decline")
+  labs(title = "Number of recovered barrels of crude oil on the decline")
 ```
+
+## question: why does Pioneer Natural Resources have so many incidents?
+```{r}
+oil_loss %>% 
+  filter(operator_number=="PIONEER NATURAL RES. USA, INC.") %>% 
+  group_by(remedy) %>% 
+  summarize(total=n())
+
+oil_loss %>%
+  filter(operator_number=="PIONEER NATURAL RES. USA, INC.") %>% 
+  group_by(causeof_loss) %>% 
+  summarize(total=n())
+
+#interesting how there have been 567 recorded instances of oil loss due to equipment failure, yet only 5 of the 769 incidents had "installed new equipment" or "repaired existing equipment" in the remedy column.
+```
+
+## breakdown by county
+```{r}
+oil_loss %>% 
+  group_by(county) %>% 
+  summarize(total_lost = sum(net_loss, na.rm=TRUE)) %>% 
+  arrange(desc(total_lost))
+
+oil_loss %>% 
+  group_by(county) %>% 
+  summarize(total_incidents = n()) %>%
+  arrange(desc(total_incidents))
+
+#crockett has the highest total lost, midland has the most incidents
+```
+
