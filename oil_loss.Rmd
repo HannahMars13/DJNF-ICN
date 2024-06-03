@@ -12,9 +12,9 @@ Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarb
 
 If I were to continue forward with only focusing on Texas, the target audience would be the people who live there so they can become more aware of what is happening in their community since there may be long-lasting effects from these losses. If I were to broaden the focus to more states, the target audience would be anyone who lives near those fracking sites.
 
-For interviews, I could try to speak to someone from one of the companies that are losing the most, an expert on the environmental effects of oil spills, and someone who lives near these fracking locations to see how they feel about it.
+For interviews, I could try to speak to someone from one of the companies that are losing the most, an expert on the environmental effects of these oil spills, and someone who lives near these fracking locations to see how they feel about it.
 
-I would like to gather information that will help me gain a better understanding of the remedial process following a spill and information that sheds light on the incidents that have occurred in the counties with the highest numbers of losses. For example, 26,199 barrels of crude oil were lost in Crockett County in 2019, and since this was the highest loss in that county out of all the years, it makes me wonder what hapepened that year that made it so much worse. Regarding the remedial process, many of the entries say there was "soil remediation" but they do not provide any detail as to what that actually entails.
+I would like to gather information that will help me gain a better understanding of the remedial process following a spill and information that sheds light on the incidents that have occurred in the counties with the highest numbers of losses. For example, 26,199 barrels of crude oil were lost in Crockett County in 2019, and since this was the highest loss in that county out of all the years, it makes me wonder what happened that year that made it so much worse. Regarding the remedial process, many of the entries say there was "soil remediation" but they do not provide any detail as to what that actually entails.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
