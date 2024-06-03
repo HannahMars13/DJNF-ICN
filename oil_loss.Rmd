@@ -12,11 +12,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(readxl)
 library(janitor)
+library(tidyverse)
 
-oil_loss <- read_excel("~/Desktop/InsideClimateNews/combined_h8.xlsx") %>% 
+oil_loss <- read_excel("~/Desktop/GitHub/InsideClimateNews/combined_h8.xlsx") %>% 
   clean_names()
 ```
 
+## counting the number of incidents per company
 ```{r}
+companies <- oil_loss %>% 
+  group_by(operator_number) %>% 
+  count() %>% 
+  arrange(desc(n))
 
+companies_years <- oil_loss %>% 
+  group_by(operator_number, master_year) %>% 
+  count() %>% 
+  arrange(desc(n))
 ```
