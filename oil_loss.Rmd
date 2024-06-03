@@ -5,6 +5,13 @@ date: "2024-06-03"
 output: html_document
 ---
 
+Hannah Marszalek
+June 6, 2024
+
+Every year, oil companies lose thousands of barrels of oil while fracking.
+
+While overall there have been more barrels recovered than net barrels lost, the number of barrels that have been lost has been on a steady decline since 2017.
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -14,7 +21,7 @@ library(readxl)
 library(janitor)
 library(tidyverse)
 
-oil_loss <- read_excel("~/Desktop/GitHub/InsideClimateNews/combined_h8.xlsx") %>% 
+oil_loss <- read_excel("~/Desktop/GitHub/DJNF-ICN/combined_h8.xlsx") %>% 
   clean_names()
 ```
 
@@ -29,4 +36,49 @@ companies_years <- oil_loss %>%
   group_by(operator_number, master_year) %>% 
   count() %>% 
   arrange(desc(n))
+```
+
+## finding total barrels that were unrecovered (net loss)
+```{r}
+sum(oil_loss$net_loss) * 42
+#24,489,864 gallons of crude oil and gas well liquids have been lost since 2009!
+
+net_loss <- oil_loss %>% 
+  filter(type_liquid=="Crude") %>% 
+  select(operator_number, net_loss) %>% 
+  group_by(operator_number) %>%
+  summarize(total_barrels = sum(net_loss, na.rm=TRUE)) %>% 
+  arrange(desc(total_barrels))
+
+#looking at average
+oil_loss %>%
+  filter(type_liquid=="Crude") %>% 
+  select(operator_number, net_loss) %>% 
+  group_by(operator_number) %>%
+  summarize(avg_barrels = mean(net_loss, na.rm=TRUE)) %>% 
+  arrange(desc(avg_barrels))
+```
+
+##looking at a yearly view
+```{r}
+#net loss
+loss_per_year <- oil_loss %>% 
+  filter(type_liquid=="Crude") %>%
+  group_by(master_year) %>% 
+  summarize(total_loss = sum(net_loss, na.rm=TRUE))
+
+ggplot(loss_per_year, aes(x=master_year, y=total_loss)) +
+  geom_line()
+
+#recovered
+sum(oil_loss$recovered) #the number of recovered barrels is more than the net loss of barrels, but still not great
+
+recovered_per_year <- oil_loss %>% 
+  filter(type_liquid=="Crude") %>%
+  group_by(master_year) %>% 
+  summarize(total_recovered = sum(recovered, na.rm=TRUE))
+
+ggplot(recovered_per_year, aes(x=master_year, y=total_recovered)) +
+  geom_line() +
+  labs(title = "Number of Recovered Barrels on the Decline")
 ```
