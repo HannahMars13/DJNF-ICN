@@ -133,6 +133,7 @@ oil_loss %>%
 ## breakdown by county
 Oil loss has been reported in 204 Texas counties.
 View of all fracking locations in Texas: https://ft.maps.arcgis.com/apps/webappviewer/index.html?appid=f537aa46be49431fbb820c4e99e63474
+Annual oil production by county: https://www.rrc.texas.gov/resource-center/data-visualization/oil-gas-data-visualization/oil-and-gas-production/
 
 ```{r}
 counties <- oil_loss %>% 
@@ -180,5 +181,31 @@ top_5 <- top_5 %>%
 top_5 <- top_5 %>% 
   arrange(master_year)
 
-write_csv(top_5, "oil_loss_by_company.csv")
+#write_csv(top_5, "oil_loss_by_company.csv")
+```
+
+## looking at gas well liquid
+
+```{r}
+oil_loss %>% 
+  filter(type_liquid=="Gas Well Liquid") %>% 
+  summarize(sum = sum(net_loss, na.rm=TRUE))
+```
+
+## closer look at the amount recovered
+
+```{r}
+#creating a new column to calculate what percent of the losses typically gets recovered
+pct_recovered <- oil_loss %>% 
+  select(master_year, operator_number, county, type_liquid, gross_loss, recovered, net_loss) %>% 
+  mutate(pct_recovered = (recovered/gross_loss)*100)
+
+#hypothesis: if the number of barrels is fewer, they are less likely to recover as much. (doesn't seem to actually be the case as a blanket statement)
+pct_recovered %>% 
+  filter(recovered==0) %>% 
+  summarize(avg_loss = mean(gross_loss, na.rm=TRUE))
+
+pct_recovered %>%
+  filter(pct_recovered==100) %>%
+  summarize(avg_loss = mean(gross_loss, na.rm=TRUE))
 ```
