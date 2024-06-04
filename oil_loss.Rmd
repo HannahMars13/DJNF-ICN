@@ -5,7 +5,8 @@ date: "2024-06-03"
 output: html_document
 ---
 
-Hannah Marszalek June 6, 2024
+Hannah Marszalek 
+June 6, 2024
 
 Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 --- enough oil to fill 37 Olympic swimming pools. The companies are required to fill out a form known as an H-8 and submit it to the Railroad Commission of Texas each time such an event occurs (<https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf>), but this information leaves room for plenty of questions regarding the effects and frequency of such events. The number of barrels lost has been on a steady decline since 2017 with 5,519 barrels lost in 2023, but this does not make these losses any less significant considering only 3,453 (about 60%) of these barrels were recovered.
 
