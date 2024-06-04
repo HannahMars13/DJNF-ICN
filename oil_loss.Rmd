@@ -5,10 +5,9 @@ date: "2024-06-03"
 output: html_document
 ---
 
-Hannah Marszalek
-June 6, 2024
+Hannah Marszalek June 6, 2024
 
-Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 — enough oil to fill 37 Olympic swimming pools. The companies are required to fill out a form known as an H-8 and submit it to the Railroad Commission of Texas each time such an event occurs (https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf), but this information leaves room for plenty of questions regarding the effects and frequency of such events. The number of barrels lost has been on a steady decline since 2017 with 5,519 barrels lost in 2023, but this does not make these losses any less significant considering only 3,453 (about 60%) of these barrels were recovered. 
+Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 --- enough oil to fill 37 Olympic swimming pools. The companies are required to fill out a form known as an H-8 and submit it to the Railroad Commission of Texas each time such an event occurs (<https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf>), but this information leaves room for plenty of questions regarding the effects and frequency of such events. The number of barrels lost has been on a steady decline since 2017 with 5,519 barrels lost in 2023, but this does not make these losses any less significant considering only 3,453 (about 60%) of these barrels were recovered.
 
 If I were to continue forward with only focusing on Texas, the target audience would be the people who live there so they can become more aware of what is happening in their community since there may be long-lasting effects from these losses. If I were to broaden the focus to more states, the target audience would be anyone who lives near those fracking sites.
 
@@ -30,6 +29,7 @@ oil_loss <- read_excel("~/Desktop/GitHub/DJNF-ICN/combined_h8.xlsx") %>%
 ```
 
 ## counting the number of reported incidents per company
+
 ```{r}
 #totals across all years
 companies <- oil_loss %>% 
@@ -45,6 +45,7 @@ companies_years <- oil_loss %>%
 ```
 
 ## finding total barrels that were unrecovered (net loss)
+
 ```{r}
 sum(oil_loss$net_loss) * 42
 #24,489,864 gallons of crude oil and gas well liquids have been lost since 2009!
@@ -67,6 +68,7 @@ oil_loss %>%
 ```
 
 ## looking at a yearly view
+
 ```{r}
 #net loss of crude oil by year
 loss_per_year <- oil_loss %>% 
@@ -96,6 +98,7 @@ oil_loss %>%
 ```
 
 ## some quick graphs to visualize the yearly values
+
 ```{r}
 #net loss graph
 ggplot(loss_per_year, aes(x=master_year, y=total_loss)) +
@@ -111,6 +114,7 @@ ggplot(recovered_per_year, aes(x=master_year, y=total_recovered)) +
 ```
 
 ## question: why does Pioneer Natural Resources have so many incidents?
+
 ```{r}
 oil_loss %>% 
   filter(operator_number=="PIONEER NATURAL RES. USA, INC.") %>% 
@@ -126,6 +130,7 @@ oil_loss %>%
 ```
 
 ## breakdown by county
+
 ```{r}
 oil_loss %>% 
   group_by(county) %>% 
@@ -153,4 +158,3 @@ oil_loss %>%
 
 #crockett has the highest total lost, midland has the most incidents
 ```
-
