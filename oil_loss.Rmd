@@ -14,7 +14,7 @@ If I were to continue forward with only focusing on Texas, the target audience w
 
 For interviews, I could try to speak to someone from one of the companies that are losing the most, an expert on the environmental effects of these oil spills, and someone who lives near these fracking locations to see how they feel about it.
 
-I would like to gather information that will help me gain a better understanding of the remedial process following a spill and information that sheds light on the incidents that have occurred in the counties with the highest numbers of losses. For example, 26,199 barrels of crude oil were lost in Crockett County in 2019, and since this was the highest loss in that county out of all the years, it makes me wonder what happened that year that made it so much worse. Regarding the remedial process, many of the entries say there was "soil remediation" but they do not provide any detail as to what that actually entails.
+I would like to gather information that will help me gain a better understanding of the remedial process following a spill and information that sheds light on the incidents that have occurred in the counties with the highest numbers of losses. For example, 26,199 barrels of crude oil were lost in Crockett County in 2019, and since this was the highest loss in that county out of all the years, it makes me wonder what happened that year that made it so much worse. Regarding the remedial process, many of the entries say there was "soil remediation" but they do not provide any detail as to what that actually entails. Furthermore, information on how much oil was produced these years would provide context to the significance of these losses.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -131,12 +131,16 @@ oil_loss %>%
 ```
 
 ## breakdown by county
+Oil loss has been reported in 204 Texas counties.
+View of all fracking locations in Texas: https://ft.maps.arcgis.com/apps/webappviewer/index.html?appid=f537aa46be49431fbb820c4e99e63474
 
 ```{r}
-oil_loss %>% 
+counties <- oil_loss %>% 
   group_by(county) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE)) %>% 
   arrange(desc(total_lost))
+
+#write_csv(counties, "texas_counties.csv")
 
 oil_loss %>% 
   group_by(county) %>% 
@@ -158,4 +162,23 @@ oil_loss %>%
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
 
 #crockett has the highest total lost, midland has the most incidents
+```
+
+## looking at the top Texas oil companies
+https://www.rrc.texas.gov/oil-and-gas/research-and-statistics/operator-information/texas-oil-and-gas-producers-by-rank-2023/
+
+```{r}
+#top 5 by oil volume rank: Pioneer Natural Resources, Diamondback, Endeavor Energy Resources, EOG Resources, XTO Energy
+top_5 <- oil_loss %>% 
+  filter(operator_number=="PIONEER NATURAL RES. USA, INC."|operator_number=="DIAMONDBACK E&P LLC"|operator_number=="ENDEAVOR ENERGY RESOURCES L.P."|operator_number=="EOG RESOURCdfv,';ES, INC."|operator_number=="XTO ENERGY INC.") %>%
+  group_by(operator_number, master_year) %>% 
+  summarize(total_lost = sum(net_loss, na.rm=TRUE))
+
+top_5 <- top_5 %>% 
+  pivot_wider(names_from=operator_number, values_from=total_lost)
+ 
+top_5 <- top_5 %>% 
+  arrange(master_year)
+
+write_csv(top_5, "oil_loss_by_company.csv")
 ```
