@@ -8,7 +8,7 @@ output: html_document
 Hannah Marszalek 
 June 6, 2024
 
-Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 --- enough oil to fill 37 Olympic swimming pools. The companies are required to fill out a form known as an H-8 and submit it to the Railroad Commission of Texas each time such an event occurs (<https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf>), but this information leaves room for plenty of questions regarding the effects and frequency of such events. The number of barrels lost has been on a steady decline since 2017 with 5,519 barrels lost in 2023, but this does not make these losses any less significant considering only 3,453 (about 60%) of these barrels were recovered.
+Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 --- enough oil to fill 37 Olympic swimming pools. The companies are required to [fill out a form known as an H-8](https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf) and submit it to the Railroad Commission of Texas each time such an event occurs , but this information leaves room for plenty of questions regarding the effects and frequency of such events. The number of barrels lost has been on a steady decline since 2017 with 5,519 barrels lost in 2023, but this does not make these losses any less significant considering only 3,453 (about 60%) of these barrels were recovered.
 
 If I were to continue forward with only focusing on Texas, the target audience would be the people who live there so they can become more aware of what is happening in their community since there may be long-lasting effects from these losses. If I were to broaden the focus to more states, the target audience would be anyone who lives near those fracking sites.
 
@@ -25,7 +25,7 @@ library(readxl)
 library(janitor)
 library(tidyverse)
 
-oil_loss <- read_excel("~/Desktop/GitHub/DJNF-ICN/combined_h8.xlsx") %>% 
+oil_loss <- read_excel("combined_h8.xlsx") %>% 
   clean_names()
 ```
 
@@ -38,7 +38,7 @@ companies <- oil_loss %>%
   count() %>% 
   arrange(desc(n))
 
-companies
+head(companies)
 
 #totals by year and company
 companies_years <- oil_loss %>% 
@@ -46,7 +46,7 @@ companies_years <- oil_loss %>%
   count() %>% 
   arrange(desc(n))
 
-companies_years
+head(companies_years)
 ```
 
 ## finding total barrels that were unrecovered (net loss)
@@ -55,9 +55,8 @@ companies_years
 sum(oil_loss$net_loss) * 42
 #24,489,864 gallons of crude oil and gas well liquids have been lost since 2009!
 
-#net loss of only crude oil per company
+#net loss per company
 net_loss <- oil_loss %>% 
-  filter(type_liquid=="Crude") %>% 
   select(operator_number, net_loss) %>% 
   group_by(operator_number) %>%
   summarize(total_barrels = sum(net_loss, na.rm=TRUE)) %>% 
@@ -65,7 +64,6 @@ net_loss <- oil_loss %>%
 
 #looking at average lost per company
 oil_loss %>%
-  filter(type_liquid=="Crude") %>% 
   select(operator_number, net_loss) %>% 
   group_by(operator_number) %>%
   summarize(avg_barrels = mean(net_loss, na.rm=TRUE)) %>% 
@@ -77,7 +75,6 @@ oil_loss %>%
 ```{r}
 #net loss of crude oil by year
 loss_per_year <- oil_loss %>% 
-  filter(type_liquid=="Crude") %>%
   group_by(master_year) %>% 
   summarize(total_loss = sum(net_loss, na.rm=TRUE))
 
@@ -86,19 +83,16 @@ sum(oil_loss$recovered) #the number of recovered barrels is more than the net lo
 
 #recovered crude oil by year
 recovered_per_year <- oil_loss %>% 
-  filter(type_liquid=="Crude") %>%
   group_by(master_year) %>% 
   summarize(total_recovered = sum(recovered, na.rm=TRUE))
 
 #while net loss has been on the decline in recent years, in 2023, still only about 60% of lost oil was recovered (3453/5519), as can be seen here:
 oil_loss %>% 
   filter(master_year==2023) %>% 
-  filter(type_liquid=="Crude") %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
 
 oil_loss %>% 
   filter(master_year==2023) %>% 
-  filter(type_liquid=="Crude") %>%
   summarize(total_recovered = sum(recovered, na.rm=TRUE))
 ```
 
@@ -139,6 +133,9 @@ Oil loss has been reported in 204 Texas counties.
 View of all fracking locations in Texas: https://ft.maps.arcgis.com/apps/webappviewer/index.html?appid=f537aa46be49431fbb820c4e99e63474
 Annual oil production by county: https://www.rrc.texas.gov/resource-center/data-visualization/oil-gas-data-visualization/oil-and-gas-production/
 
+<iframe title="Crockett County and Harrison County most affected by Texas oil company barrel losses" aria-label="Map" id="datawrapper-chart-ogAF0" src="https://datawrapper.dwcdn.net/ogAF0/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="826" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+</script>
+
 ```{r}
 counties <- oil_loss %>% 
   group_by(county) %>% 
@@ -155,14 +152,12 @@ oil_loss %>%
 #midland county
 oil_loss %>% 
   filter(county=="MIDLAND") %>% 
-  filter(type_liquid=="Crude") %>%
   group_by(master_year) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
 
 #crockett county
 oil_loss %>% 
   filter(county=="CROCKETT") %>% 
-  filter(type_liquid=="Crude") %>%
   group_by(master_year) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
 
@@ -172,10 +167,12 @@ oil_loss %>%
 ## looking at the top Texas oil companies
 https://www.rrc.texas.gov/oil-and-gas/research-and-statistics/operator-information/texas-oil-and-gas-producers-by-rank-2023/
 
+![](images/oil_loss_companies.png){width="100%"}
+
 ```{r}
 #top 5 by oil volume rank: Pioneer Natural Resources, Diamondback, Endeavor Energy Resources, EOG Resources, XTO Energy
 top_5 <- oil_loss %>% 
-  filter(operator_number=="PIONEER NATURAL RES. USA, INC."|operator_number=="DIAMONDBACK E&P LLC"|operator_number=="ENDEAVOR ENERGY RESOURCES L.P."|operator_number=="EOG RESOURCdfv,';ES, INC."|operator_number=="XTO ENERGY INC.") %>%
+  filter(operator_number=="PIONEER NATURAL RES. USA, INC."|operator_number=="DIAMONDBACK E&P LLC"|operator_number=="ENDEAVOR ENERGY RESOURCES L.P."|operator_number=="EOG RESOURCES, INC."|operator_number=="XTO ENERGY INC.") %>%
   group_by(operator_number, master_year) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
 
@@ -212,4 +209,17 @@ pct_recovered %>%
 pct_recovered %>%
   filter(pct_recovered==100) %>%
   summarize(avg_loss = mean(gross_loss, na.rm=TRUE))
+```
+
+```{r}
+test <- oil_loss %>% 
+  filter(operator_number=="NFR ENERGY, LLC"|operator_number=="AMID SILVER DOLLAR PIPELINE LLC"|operator_number=="ENDEAVOR ENERGY RESOURCES L.P."|operator_number=="EPIC CONSOLIDATED OPS, LLC"|operator_number=="ANADARKO E&P ONSHORE LLC") %>%
+  group_by(operator_number, master_year) %>% 
+  summarize(total_lost = sum(net_loss, na.rm=TRUE))
+
+test <- test %>% 
+  pivot_wider(names_from=operator_number, values_from=total_lost)
+ 
+test <- test %>% 
+  arrange(master_year)
 ```
