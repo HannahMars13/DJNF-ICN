@@ -38,11 +38,15 @@ companies <- oil_loss %>%
   count() %>% 
   arrange(desc(n))
 
+companies
+
 #totals by year and company
 companies_years <- oil_loss %>% 
   group_by(operator_number, master_year) %>% 
   count() %>% 
   arrange(desc(n))
+
+companies_years
 ```
 
 ## finding total barrels that were unrecovered (net loss)
