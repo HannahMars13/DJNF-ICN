@@ -1,7 +1,7 @@
 ---
-title: "Fracking Oil Loss"
-author: "Hannah Marszalek"
-date: "2024-06-03"
+title: ""
+author: ""
+date: ""
 output: html_document
 ---
 
@@ -17,7 +17,7 @@ Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarb
 
 The number of barrels lost has been on a steady decline since 2017 with 6,130 barrels lost in 2023, but this does not make these losses any less significant considering only 3,729 (about 60%) of these barrels were recovered. Of the 10,585 cases where equipment failure or corrosion was cited as the cause of the incident, only 522 mentioned mentioned equipment repair as their remedial measures taken. This points to widespread issues with the existing fracking equipment, which creates even more opportunity for such losses to occur.
 
-The companies that have lost the most since 2009 are NFR Energy, Amid Silver Dollar Pipeline, Endeavor Energy Resources, Epic Consolidated Operations,and Anadarko E&P Onshore. A particularly interesting aspect about these being the biggest losers is that three of these five companies have very incomplete loss records. While a company is only required to fill out an H-8 form if they have a loss, it seems strange that those who had such large amounts of losses between only one or two years did not have any losses from any other years.
+The companies that have lost the most since 2009 are NFR Energy, Amid Silver Dollar Pipeline, Endeavor Energy Resources, Epic Consolidated Operations,and Anadarko E&P Onshore. A particularly interesting aspect about these being the biggest losers is that three of these five companies have very incomplete loss records. While a company is only required to fill out an H-8 form if they have a loss, it seems strange that those who had such large amounts of losses between only one or two years did not have any losses from any other years. 
 
 If I were to continue forward with only focusing on Texas, the target audience would be the people who live there so they can become more aware of what is happening in their community since there may be long-lasting effects from these losses. If I were to broaden the focus to more states, the target audience would be anyone who lives near those fracking sites. For interviews, I could try to speak to someone from one of the companies that are losing the most, an expert on the environmental effects of these oil spills, and someone who lives near these fracking locations to see how they feel about it.
 
@@ -27,35 +27,37 @@ I would like to gather information that will help me gain a better understanding
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r eval=TRUE, include=FALSE}
 library(readxl)
 library(janitor)
 library(tidyverse)
 library(kableExtra)
+```
 
+```{r}
 oil_loss <- read_excel("combined_h8.xlsx") %>% 
   clean_names()
 ```
 
-## Section 1: Net Loss and Amount Recovered Per Year
+## Part 1: Net Loss and Amount Recovered Per Year
 
 ### Net Loss
 
+The net loss is calculated for each company by subtracting the number of recovered barrels from the provided gross loss figure. This code provides a quick annual overview of net loss.
+
 ```{r}
-#net loss of crude oil by year
+#Multiplying the number of barrels times 42 to convert to gallons (there are 42 gallons in a barrel)
+sum(oil_loss$net_loss) * 42
+#24,489,864 gallons of crude oil and gas well liquids have been lost since 2009!
+
+#Net loss of all products by year
 loss_per_year <- oil_loss %>% 
   group_by(master_year) %>% 
   summarize(total_loss = sum(net_loss, na.rm=TRUE))
 
-#amount recovered
-sum(oil_loss$recovered) #the number of recovered barrels is more than the net loss of barrels, but still not great
+head(loss_per_year)
 
-#recovered crude oil by year
-recovered_per_year <- oil_loss %>% 
-  group_by(master_year) %>% 
-  summarize(total_recovered = sum(recovered, na.rm=TRUE))
-
-#while net loss has been on the decline in recent years, in 2023, still only about 60% of lost oil was recovered (3453/5519), as can be seen here:
+#While net loss has been on the decline in recent years, in 2023, still only about 60% of lost oil was recovered (3729/6130), as can be seen here:
 oil_loss %>% 
   filter(master_year==2023) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
@@ -67,42 +69,48 @@ oil_loss %>%
 
 ### Amount Recovered
 
+The amount recovered is the number of barrels they were able to recollect following the incident. I would like to do more digging into what this recovery process looks like and if the products are still usable after they are recovered.
+
 ```{r}
-#creating a new column to calculate what percent of the losses typically gets recovered
+#Total number of recovered barrels
+sum(oil_loss$recovered)
+
+#Recovered barrels by year
+recovered_per_year <- oil_loss %>% 
+  group_by(master_year) %>% 
+  summarize(total_recovered = sum(recovered, na.rm=TRUE))
+
+head(recovered_per_year)
+
+#Creating a new column to calculate what percent of the losses typically gets recovered
 pct_recovered <- oil_loss %>% 
   select(master_year, operator_number, county, type_liquid, gross_loss, recovered, net_loss) %>% 
   mutate(pct_recovered = (recovered/gross_loss)*100)
 
-#hypothesis: if the number of barrels is fewer, they are less likely to recover as much. (doesn't seem to actually be the case as a blanket statement)
-pct_recovered %>% 
-  filter(recovered==0) %>% 
-  summarize(avg_loss = mean(gross_loss, na.rm=TRUE))
-
-pct_recovered %>%
-  filter(pct_recovered==100) %>%
-  summarize(avg_loss = mean(gross_loss, na.rm=TRUE))
+head(pct_recovered)
 ```
 
 ```{r}
-#net loss graph
-ggplot(loss_per_year, aes(x=master_year, y=total_loss)) +
-  geom_line() +
-  labs(title = "Net loss of crude oil at an all time low since 2009")
+#Net loss vs recovered barrels graph
+lost_and_recovered <- merge(loss_per_year, recovered_per_year)
+
+ggplot(lost_and_recovered, aes(x = master_year)) +
+  scale_color_manual(values = c("Net Loss" = "red", "Recovered" = "#028A0F")) +
+  geom_line(aes(y = total_loss, color = "Net Loss")) +
+  geom_line(aes(y = total_recovered, color = "Recovered")) +
+  labs(title="Comparing the number of lost and recovered barrels of fracking \nproducts between 2009 and 2023", 
+       x="Year", y="Total barrels", color = "Legend") +
+  theme_minimal()
 ```
 
-```{r}
-#recovered barrels graph
-ggplot(recovered_per_year, aes(x=master_year, y=total_recovered)) +
-  geom_line() +
-  labs(title = "Number of recovered barrels of crude oil on the decline")
-```
-
-## Section 2: A Closer Look at the Companies
+## Part 2: A Closer Look at the Companies
 
 ### Calculating the number of individual reported incidents per company
 
+This section looks at the total number of incidents each company has logged to see which ones are frequently involved in such losses.
+
 ```{r}
-#totals across all years
+#Total number of incidents across all years
 companies <- oil_loss %>% 
   group_by(operator_number) %>% 
   count() %>% 
@@ -110,7 +118,7 @@ companies <- oil_loss %>%
 
 head(companies)
 
-#totals by year and company
+#Totals by year and company
 companies_years <- oil_loss %>% 
   group_by(operator_number, master_year) %>% 
   count() %>% 
@@ -121,18 +129,19 @@ head(companies_years)
 
 ### Finding the net loss of barrels for all incidents per company
 
-```{r}
-sum(oil_loss$net_loss) * 42
-#24,489,864 gallons of crude oil and gas well liquids have been lost since 2009!
+This section looks at the number of barrels lost from all incidents per company.
 
-#net loss per company
+```{r}
+#Net loss per company
 net_loss <- oil_loss %>% 
   select(operator_number, net_loss) %>% 
   group_by(operator_number) %>%
   summarize(total_barrels = sum(net_loss, na.rm=TRUE)) %>% 
   arrange(desc(total_barrels))
 
-#looking at average lost per company
+head(net_loss)
+
+#Finding the average amount of barrels lost per company
 oil_loss %>%
   select(operator_number, net_loss) %>% 
   group_by(operator_number) %>%
@@ -142,18 +151,10 @@ oil_loss %>%
 
 ### Texas' top producing companies
 
-<https://www.rrc.texas.gov/oil-and-gas/research-and-statistics/operator-information/texas-oil-and-gas-producers-by-rank-2023/>
+This section takes a look at the companies who produce the highest volume of oil each year [according to the Railroad Commission](https://www.rrc.texas.gov/oil-and-gas/research-and-statistics/operator-information/texas-oil-and-gas-producers-by-rank-2023/) and sees how many barrels they have lost throughout the years.
 
-<iframe src="https://flo.uri.sh/visualisation/18240706/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width:100%;height:600px;" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
-
-</iframe>
-
-::: {style="width:100%!;margin-top:4px!important;text-align:right!important;"}
-<a class='flourish-credit' href='https://public.flourish.studio/visualisation/18240706/?utm_source=embed&utm_campaign=visualisation/18240706' target='_top' style='text-decoration:none!important'><img src="https://public.flourish.studio/resources/made_with_flourish.svg" alt="Made with Flourish" style="width:105px!important;height:16px!important;border:none!important;margin:0!important;"/> </a>
-:::
-
-```{r}
-#top 5 by oil volume rank: Pioneer Natural Resources, Diamondback, Endeavor Energy Resources, EOG Resources, XTO Energy
+```{r eval=FALSE, include=TRUE}
+#Top 5 by oil volume rank: Pioneer Natural Resources, Diamondback, Endeavor Energy Resources, EOG Resources, XTO Energy
 top_5_producers <- oil_loss %>% 
   filter(operator_number=="PIONEER NATURAL RES. USA, INC."|operator_number=="DIAMONDBACK E&P LLC"|operator_number=="ENDEAVOR ENERGY RESOURCES L.P."|operator_number=="EOG RESOURCES, INC."|operator_number=="XTO ENERGY INC.") %>%
   group_by(operator_number, master_year) %>% 
@@ -168,9 +169,17 @@ top_5_producers <- top_5_producers %>%
 #write_csv(top_5_producers, "oil_loss_by_company.csv")
 ```
 
+<iframe src="https://flo.uri.sh/visualisation/18240706/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width:100%;height:600px;" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+
+</iframe>
+
+::: {style="width:100%!;margin-top:4px!important;text-align:right!important;"}
+<a class='flourish-credit' href='https://public.flourish.studio/visualisation/18240706/?utm_source=embed&utm_campaign=visualisation/18240706' target='_top' style='text-decoration:none!important'><img src="https://public.flourish.studio/resources/made_with_flourish.svg" alt="Made with Flourish" style="width:105px!important;height:16px!important;border:none!important;margin:0!important;"/> </a>
+:::
+
 ### The companies who have lost the most since 2009
 
-Amid Silver Dollar was incorporated in 2013, yet they did not log any losses until 2019. 
+The five companies with the most barrels lost since 2009 are NFR Energy, Amid Silver Dollar Pipeline, Endeavor Energy Resources, Epic Consolidated Operations, and Anadarko E&P Onshore. Anadarko E&P and Endeavor Energy are at the top of the list because they have been consistently losing a substantial amount of oil each year, whereas the other three are at the top because of one or two years where they lost a lot all at once. For example, Epic Consolidated only has logged incidents for 2019, but they lost 12,984 barrels in one year. Part of the reason these three have less yearly information is because they did not exist for the full time period. Amid Silver Dollar was incorporated in 2013, Epic Consolidated Operations was incorporated in 2017, and NFR Energy does not seem to have been active in over ten years.
 
 ```{r}
 top_5_losses <- oil_loss %>% 
@@ -183,11 +192,13 @@ top_5_losses <- top_5_losses %>%
  
 top_5_losses <- top_5_losses %>% 
   arrange(master_year)
+
+head(top_5_losses)
 ```
 
-### Question: why does Pioneer Natural Resources have so many incidents?
+### Question: Why does Pioneer Natural Resources have so many incidents?
 
-Interesting how there have been 567 recorded instances of oil loss due to equipment failure, yet only 5 of the 769 incidents had "installed new equipment" or "repaired existing equipment" in the remedy column.
+One interesting discovery I made is that Pioneer Natural Resources, which is part of Exxon Mobil, has had 567 recorded instances of oil loss due to equipment failure. Despite this, only 5 of the 769 incidents had "installed new equipment" or "repaired existing equipment" in the remedy column.
 
 ```{r}
 oil_loss %>% 
@@ -201,63 +212,66 @@ oil_loss %>%
   summarize(total=n())
 ```
 
-## Section 3: The Affected Counties
+## Part 3: The Affected Counties
 
-### breakdown by county
+### Breakdown by county
 
-Oil loss has been reported in 204 Texas counties. View of all fracking locations in Texas: <https://ft.maps.arcgis.com/apps/webappviewer/index.html?appid=f537aa46be49431fbb820c4e99e63474> Annual oil production by county: <https://www.rrc.texas.gov/resource-center/data-visualization/oil-gas-data-visualization/oil-and-gas-production/>
+Oil loss has been reported in 204 Texas counties. [Here](https://ft.maps.arcgis.com/apps/webappviewer/index.html?appid=f537aa46be49431fbb820c4e99e63474) is a view of all fracking locations in Texas, and [here](https://www.rrc.texas.gov/resource-center/data-visualization/oil-gas-data-visualization/oil-and-gas-production/) are some of the Railroad Commission's statistics on annual oil production by county. As can be expected, the number of barrel losses is typically higher in counties with fracking locations.
 
-<iframe title="Crockett County and Harrison County most affected by Texas oil company barrel losses" aria-label="Map" id="datawrapper-chart-ogAF0" src="https://datawrapper.dwcdn.net/ogAF0/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="826" data-external="1">
-
-</iframe>
-
-```{=html}
-<script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+<iframe title="Crockett County and Harrison County most affected by Texas oil company barrel losses" aria-label="Map" id="datawrapper-chart-ogAF0" src="https://datawrapper.dwcdn.net/ogAF0/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="826" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
 </script>
-```
 
 ```{r}
+#Total loss per county
 counties <- oil_loss %>% 
   group_by(county) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE)) %>% 
   arrange(desc(total_lost))
 
+head(counties)
+
 #write_csv(counties, "texas_counties.csv")
 
+#Total incidents per county
 oil_loss %>% 
   group_by(county) %>% 
   summarize(total_incidents = n()) %>%
   arrange(desc(total_incidents))
 
-#midland county
+#Looking at Midland County since they had the most total incidents
 oil_loss %>% 
   filter(county=="MIDLAND") %>% 
   group_by(master_year) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
 
-#crockett county
+#Looking at Crockett County since they lost the most total barrels
 oil_loss %>% 
   filter(county=="CROCKETT") %>% 
   group_by(master_year) %>% 
   summarize(total_lost = sum(net_loss, na.rm=TRUE))
-
-#crockett has the highest total lost, midland has the most incidents
 ```
 
-## Section 4: Causes for the Losses
+## Part 4: Causes for the Losses
+
+Another point of interest in this data is the column that specifies the cause of loss, particularly when looked at in combination with the column specifying what remedial measures were taken. Equipment failure is by far the leading cause of these losses at 8,706, with corrosion from rust the runner-up at 1,879. Even so, there are only 522 instances where the remedy column mentions equipment repair. 
 
 ```{r}
+#Total incidents with each cause of loss
 oil_loss %>% 
   group_by(causeof_loss) %>% 
   summarize(total=n()) %>% 
   arrange(desc(total))
 
+#Looking specifically at how many incidents per year were caused by equipment failure (included corrosion in this)
 equip_failures <- oil_loss %>% 
   select(master_year, causeof_loss) %>% 
   filter(causeof_loss=="Equipment Failure"|causeof_loss=="Corrosion - Rust") %>%
   group_by(master_year) %>% 
   summarize(total = n())
-  
+
+head(equip_failures)
+ 
+#Total number of incidents caused by equipment failure that cited repairing the equipment as their remedial measure
 oil_loss %>% 
   filter(causeof_loss=="Equipment Failure"|causeof_loss=="Corrosion - Rust") %>% 
   filter(remedy=="Repaired Existing Equipment") %>% 
