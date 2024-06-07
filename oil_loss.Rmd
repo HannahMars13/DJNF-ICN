@@ -2,8 +2,8 @@
 title: ""
 author: ""
 date: ""
-output: 
-  html_document:
+format: 
+  html:
     theme: journal
 ---
 
@@ -13,13 +13,13 @@ output:
 
 Hannah Marszalek
 
-June 5, 2024
+June 8, 2024
 
 Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 --- enough oil to fill 37 Olympic swimming pools. The companies are required to [fill out a form known as an H-8](https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf) and submit it to the Railroad Commission of Texas each time such an event occurs, but this information leaves room for plenty of questions regarding the effects and frequency of such events.
 
-The number of barrels lost has been on a steady decline since 2017 with 6,130 barrels lost in 2023, but this does not make these losses any less significant considering only 3,729 (about 60%) of these barrels were recovered. Of the 10,585 cases where equipment failure or corrosion was cited as the cause of the incident, only 522 mentioned mentioned equipment repair as their remedial measures taken. This points to widespread issues with the existing fracking equipment, which creates even more opportunity for such losses to occur.
+<iframe title="Crockett County and Harrison County most affected by Texas oil company barrel losses" aria-label="Map" id="datawrapper-chart-ogAF0" src="https://datawrapper.dwcdn.net/ogAF0/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="826" data-external="1"></iframe>
 
-<iframe src='https://flo.uri.sh/visualisation/18288062/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/18288062/?utm_source=embed&utm_campaign=visualisation/18288062' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
+The number of barrels lost has been on a steady decline since 2017 with 6,130 barrels lost in 2023, but this does not make these losses any less significant considering only 3,729 (about 60%) of these barrels were recovered. Of the 10,585 cases where equipment failure or corrosion was cited as the cause of the incident, only 522 mentioned mentioned equipment repair as their remedial measures taken. This points to widespread issues with the existing fracking equipment, which creates even more opportunity for such losses to occur.
 
 The companies that have lost the most since 2009 are NFR Energy, Amid Silver Dollar Pipeline, Endeavor Energy Resources, Epic Consolidated Operations,and Anadarko E&P Onshore. A particularly interesting aspect about these being the biggest losers is that three of these five companies have very incomplete loss records. While a company is only required to fill out an H-8 form if they have a loss, it seems strange that those who had such large amounts of losses between only one or two years did not have any losses from any other years.
 
@@ -59,13 +59,13 @@ cat(total_gallons, "gallons of crude oil and gas well liquids have been lost sin
 #Net loss of all products by year
 loss_per_year <- oil_loss %>% 
   group_by(master_year) %>% 
-  summarize(total_loss = sum(net_loss, na.rm=TRUE))
+  summarize(net_loss = sum(net_loss, na.rm=TRUE))
 
 loss_per_year %>% 
   gt() %>% 
   cols_label(master_year = "Year",
-             total_loss = "Net Loss") %>% 
-  tab_header(title = "Total Barrels of Fracking Products Lost Per Year") %>% 
+             net_loss = "Net Loss (bbl)") %>% 
+  tab_header(title = "Net of Fracking Products Lost Per Year") %>% 
   tab_style(
     style = list(
       cell_text(weight = "bold")
@@ -116,9 +116,9 @@ lost_and_recovered <- merge(loss_per_year, recovered_per_year)
 
 ggplot(lost_and_recovered, aes(x = master_year)) +
   scale_color_manual(values = c("Net Loss" = "red", "Recovered" = "#028A0F")) +
-  geom_line(aes(y = total_loss, color = "Net Loss")) +
+  geom_line(aes(y = net_loss, color = "Net Loss")) +
   geom_line(aes(y = total_recovered, color = "Recovered")) +
-  labs(title="Comparing the number of lost and recovered barrels of fracking \nproducts between 2009 and 2023", 
+  labs(title="Comparing the number of net lost and total recovered barrels of fracking \nproducts between 2009 and 2023", 
        x="Year", y="Total barrels", color = "Legend") +
   theme_minimal()
 ```
@@ -149,21 +149,34 @@ cat("On average, only", pct_recovered$avg_pct, "% of the lost fracking products 
 This section looks at the total number of incidents each company has logged to see which ones are frequently involved in such losses.
 
 ```{r}
-#Total number of incidents across all years
-companies <- oil_loss %>% 
-  group_by(operator_number) %>% 
-  count() %>% 
-  arrange(desc(n))
-
-head(companies)
-
 #Totals by year and company
 companies_years <- oil_loss %>% 
   group_by(operator_number, master_year) %>% 
-  count() %>% 
-  arrange(desc(n))
+  summarize(count = n()) %>% 
+  arrange(desc(count))
 
-head(companies_years)
+#Total number of incidents across all years
+companies <- oil_loss %>% 
+  group_by(operator_number) %>% 
+  summarize(count = n()) %>% 
+  arrange(desc(count))
+
+companies %>%
+  head(10) %>% 
+  gt() %>% 
+  cols_label(operator_number = "Company",
+             count = "Total Incidents") %>% 
+  tab_header(title = "Total Reported Oil Loss Incidents Per Company") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
 ```
 
 ### Finding the net loss of barrels for all incidents per company
@@ -175,17 +188,49 @@ This section looks at the number of barrels lost from all incidents per company.
 net_loss <- oil_loss %>% 
   select(operator_number, net_loss) %>% 
   group_by(operator_number) %>%
-  summarize(total_barrels = sum(net_loss, na.rm=TRUE)) %>% 
-  arrange(desc(total_barrels))
+  summarize(net_barrels = sum(net_loss, na.rm=TRUE)) %>% 
+  arrange(desc(net_barrels))
 
-head(net_loss)
+net_loss %>%
+  head(10) %>% 
+  gt() %>% 
+  cols_label(operator_number = "Company",
+             net_barrels = "Net Barrels") %>% 
+  tab_header(title = "Net Barrels Lost Per Company") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
 
 #Finding the average amount of barrels lost per company
-oil_loss %>%
+avg_loss <- oil_loss %>%
   select(operator_number, net_loss) %>% 
   group_by(operator_number) %>%
-  summarize(avg_barrels = mean(net_loss, na.rm=TRUE)) %>% 
+  summarize(avg_barrels = round(mean(net_loss, na.rm=TRUE), 2)) %>% 
   arrange(desc(avg_barrels))
+
+avg_loss %>%
+  head(10) %>% 
+  gt() %>% 
+  cols_label(operator_number = "Company",
+             avg_barrels = "Average Barrels") %>% 
+  tab_header(title = "Average Barrels Lost Per Incident Per Company") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
 ```
 
 ### Texas' top producing companies
@@ -268,11 +313,11 @@ Oil loss has been reported in 204 Texas counties. [Here](https://ft.maps.arcgis.
 </script>
 ```
 ```{r}
-#Total loss per county
+#Net loss per county
 counties <- oil_loss %>% 
   group_by(county) %>% 
-  summarize(total_lost = sum(net_loss, na.rm=TRUE)) %>% 
-  arrange(desc(total_lost))
+  summarize(net_lost = sum(net_loss, na.rm=TRUE)) %>% 
+  arrange(desc(net_lost))
 
 head(counties)
 
@@ -288,18 +333,20 @@ oil_loss %>%
 oil_loss %>% 
   filter(county=="MIDLAND") %>% 
   group_by(master_year) %>% 
-  summarize(total_lost = sum(net_loss, na.rm=TRUE))
+  summarize(net_lost = sum(net_loss, na.rm=TRUE))
 
 #Looking at Crockett County since they lost the most total barrels
 oil_loss %>% 
   filter(county=="CROCKETT") %>% 
   group_by(master_year) %>% 
-  summarize(total_lost = sum(net_loss, na.rm=TRUE))
+  summarize(net_lost = sum(net_loss, na.rm=TRUE))
 ```
 
-## Part 4: Causes for the Losses
+## Part 4: Causes of Loss
 
 Another point of interest in this data is the column that specifies the cause of loss, particularly when looked at in combination with the column specifying what remedial measures were taken. Equipment failure is by far the leading cause of these losses at 8,706, with corrosion from rust the runner-up at 1,879. Even so, there are only 522 instances where the remedy column mentions equipment repair.
+
+<iframe src='https://flo.uri.sh/visualisation/18288062/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/18288062/?utm_source=embed&utm_campaign=visualisation/18288062' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
 
 ```{r}
 #Total incidents with each cause of loss
@@ -308,7 +355,7 @@ causes_breakdown <- oil_loss %>%
   summarize(total=n()) %>% 
   arrange(desc(total))
 
-write_csv(causes_breakdown, "causes_of_loss.csv")
+#write_csv(causes_breakdown, "causes_of_loss.csv")
 
 #Looking specifically at how many incidents per year were caused by equipment failure (included corrosion in this)
 equip_failures <- oil_loss %>% 
