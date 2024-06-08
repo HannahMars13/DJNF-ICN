@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.43">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="">
 
-<title>oil_loss</title>
+<title>oil_loss.qmd</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,12 +18,11 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -48,26 +47,56 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
-<script src="oil_loss_files/libs/clipboard/clipboard.min.js"></script>
-<script src="oil_loss_files/libs/quarto-html/quarto.js"></script>
-<script src="oil_loss_files/libs/quarto-html/popper.min.js"></script>
-<script src="oil_loss_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="oil_loss_files/libs/quarto-html/anchor.min.js"></script>
-<link href="oil_loss_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="oil_loss_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="oil_loss_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="oil_loss_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="oil_loss_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="oil_loss.Qmd_files/libs/clipboard/clipboard.min.js"></script>
+<script src="oil_loss.Qmd_files/libs/quarto-html/quarto.js"></script>
+<script src="oil_loss.Qmd_files/libs/quarto-html/popper.min.js"></script>
+<script src="oil_loss.Qmd_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="oil_loss.Qmd_files/libs/quarto-html/anchor.min.js"></script>
+<link href="oil_loss.Qmd_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="oil_loss.Qmd_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="oil_loss.Qmd_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="oil_loss.Qmd_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="oil_loss.Qmd_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -77,7 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 
 <main class="content" id="quarto-document-content">
-
 
 
 
@@ -138,12 +166,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="mpkwzsguhq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="mthqtwpijh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#mpkwzsguhq) .gt_table {
+:where(#mthqtwpijh) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -168,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_heading {
+:where(#mthqtwpijh) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -180,12 +209,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_caption {
+:where(#mthqtwpijh) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#mpkwzsguhq) .gt_title {
+:where(#mthqtwpijh) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -197,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-:where(#mpkwzsguhq) .gt_subtitle {
+:where(#mthqtwpijh) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -209,13 +238,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-:where(#mpkwzsguhq) .gt_bottom_border {
+:where(#mthqtwpijh) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_col_headings {
+:where(#mthqtwpijh) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -230,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_col_heading {
+:where(#mthqtwpijh) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -250,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-:where(#mpkwzsguhq) .gt_column_spanner_outer {
+:where(#mthqtwpijh) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -262,15 +291,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-:where(#mpkwzsguhq) .gt_column_spanner_outer:first-child {
+:where(#mthqtwpijh) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#mpkwzsguhq) .gt_column_spanner_outer:last-child {
+:where(#mthqtwpijh) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#mpkwzsguhq) .gt_column_spanner {
+:where(#mthqtwpijh) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -282,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-:where(#mpkwzsguhq) .gt_group_heading {
+:where(#mthqtwpijh) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -308,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-:where(#mpkwzsguhq) .gt_empty_group_heading {
+:where(#mthqtwpijh) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -323,15 +352,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-:where(#mpkwzsguhq) .gt_from_md > :first-child {
+:where(#mthqtwpijh) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#mpkwzsguhq) .gt_from_md > :last-child {
+:where(#mthqtwpijh) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#mpkwzsguhq) .gt_row {
+:where(#mthqtwpijh) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -350,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-:where(#mpkwzsguhq) .gt_stub {
+:where(#mthqtwpijh) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -363,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#mpkwzsguhq) .gt_stub_row_group {
+:where(#mthqtwpijh) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -377,11 +406,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-:where(#mpkwzsguhq) .gt_row_group_first td {
+:where(#mthqtwpijh) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#mpkwzsguhq) .gt_summary_row {
+:where(#mthqtwpijh) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -391,16 +420,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#mpkwzsguhq) .gt_first_summary_row {
+:where(#mthqtwpijh) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_first_summary_row.thick {
+:where(#mthqtwpijh) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#mpkwzsguhq) .gt_last_summary_row {
+:where(#mthqtwpijh) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -410,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_grand_summary_row {
+:where(#mthqtwpijh) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -420,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#mpkwzsguhq) .gt_first_grand_summary_row {
+:where(#mthqtwpijh) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -430,11 +459,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_striped {
+:where(#mthqtwpijh) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#mpkwzsguhq) .gt_table_body {
+:where(#mthqtwpijh) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -443,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_footnotes {
+:where(#mthqtwpijh) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -457,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_footnote {
+:where(#mthqtwpijh) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -466,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#mpkwzsguhq) .gt_sourcenotes {
+:where(#mthqtwpijh) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -480,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#mpkwzsguhq) .gt_sourcenote {
+:where(#mthqtwpijh) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -488,64 +517,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#mpkwzsguhq) .gt_left {
+:where(#mthqtwpijh) .gt_left {
   text-align: left;
 }
 
-:where(#mpkwzsguhq) .gt_center {
+:where(#mthqtwpijh) .gt_center {
   text-align: center;
 }
 
-:where(#mpkwzsguhq) .gt_right {
+:where(#mthqtwpijh) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#mpkwzsguhq) .gt_font_normal {
+:where(#mthqtwpijh) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#mpkwzsguhq) .gt_font_bold {
+:where(#mthqtwpijh) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#mpkwzsguhq) .gt_font_italic {
+:where(#mthqtwpijh) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#mpkwzsguhq) .gt_super {
+:where(#mthqtwpijh) .gt_super {
   font-size: 65%;
 }
 
-:where(#mpkwzsguhq) .gt_footnote_marks {
+:where(#mthqtwpijh) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#mpkwzsguhq) .gt_asterisk {
+:where(#mthqtwpijh) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#mpkwzsguhq) .gt_indent_1 {
+:where(#mthqtwpijh) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#mpkwzsguhq) .gt_indent_2 {
+:where(#mthqtwpijh) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#mpkwzsguhq) .gt_indent_3 {
+:where(#mthqtwpijh) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#mpkwzsguhq) .gt_indent_4 {
+:where(#mthqtwpijh) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#mpkwzsguhq) .gt_indent_5 {
+:where(#mthqtwpijh) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -633,12 +662,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="qbbxvlhkye" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="uddbadeaaz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#qbbxvlhkye) .gt_table {
+:where(#uddbadeaaz) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -663,7 +693,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_heading {
+:where(#uddbadeaaz) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -675,12 +705,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_caption {
+:where(#uddbadeaaz) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#qbbxvlhkye) .gt_title {
+:where(#uddbadeaaz) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -692,7 +722,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-:where(#qbbxvlhkye) .gt_subtitle {
+:where(#uddbadeaaz) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -704,13 +734,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-:where(#qbbxvlhkye) .gt_bottom_border {
+:where(#uddbadeaaz) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_col_headings {
+:where(#uddbadeaaz) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -725,7 +755,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_col_heading {
+:where(#uddbadeaaz) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -745,7 +775,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-:where(#qbbxvlhkye) .gt_column_spanner_outer {
+:where(#uddbadeaaz) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -757,15 +787,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-:where(#qbbxvlhkye) .gt_column_spanner_outer:first-child {
+:where(#uddbadeaaz) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#qbbxvlhkye) .gt_column_spanner_outer:last-child {
+:where(#uddbadeaaz) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#qbbxvlhkye) .gt_column_spanner {
+:where(#uddbadeaaz) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -777,7 +807,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-:where(#qbbxvlhkye) .gt_group_heading {
+:where(#uddbadeaaz) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -803,7 +833,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-:where(#qbbxvlhkye) .gt_empty_group_heading {
+:where(#uddbadeaaz) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -818,15 +848,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-:where(#qbbxvlhkye) .gt_from_md > :first-child {
+:where(#uddbadeaaz) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#qbbxvlhkye) .gt_from_md > :last-child {
+:where(#uddbadeaaz) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#qbbxvlhkye) .gt_row {
+:where(#uddbadeaaz) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -845,7 +875,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-:where(#qbbxvlhkye) .gt_stub {
+:where(#uddbadeaaz) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -858,7 +888,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#qbbxvlhkye) .gt_stub_row_group {
+:where(#uddbadeaaz) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -872,11 +902,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-:where(#qbbxvlhkye) .gt_row_group_first td {
+:where(#uddbadeaaz) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#qbbxvlhkye) .gt_summary_row {
+:where(#uddbadeaaz) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -886,16 +916,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#qbbxvlhkye) .gt_first_summary_row {
+:where(#uddbadeaaz) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_first_summary_row.thick {
+:where(#uddbadeaaz) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#qbbxvlhkye) .gt_last_summary_row {
+:where(#uddbadeaaz) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -905,7 +935,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_grand_summary_row {
+:where(#uddbadeaaz) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -915,7 +945,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#qbbxvlhkye) .gt_first_grand_summary_row {
+:where(#uddbadeaaz) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -925,11 +955,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_striped {
+:where(#uddbadeaaz) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#qbbxvlhkye) .gt_table_body {
+:where(#uddbadeaaz) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -938,7 +968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_footnotes {
+:where(#uddbadeaaz) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -952,7 +982,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_footnote {
+:where(#uddbadeaaz) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -961,7 +991,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#qbbxvlhkye) .gt_sourcenotes {
+:where(#uddbadeaaz) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -975,7 +1005,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#qbbxvlhkye) .gt_sourcenote {
+:where(#uddbadeaaz) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -983,64 +1013,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#qbbxvlhkye) .gt_left {
+:where(#uddbadeaaz) .gt_left {
   text-align: left;
 }
 
-:where(#qbbxvlhkye) .gt_center {
+:where(#uddbadeaaz) .gt_center {
   text-align: center;
 }
 
-:where(#qbbxvlhkye) .gt_right {
+:where(#uddbadeaaz) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#qbbxvlhkye) .gt_font_normal {
+:where(#uddbadeaaz) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#qbbxvlhkye) .gt_font_bold {
+:where(#uddbadeaaz) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#qbbxvlhkye) .gt_font_italic {
+:where(#uddbadeaaz) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#qbbxvlhkye) .gt_super {
+:where(#uddbadeaaz) .gt_super {
   font-size: 65%;
 }
 
-:where(#qbbxvlhkye) .gt_footnote_marks {
+:where(#uddbadeaaz) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#qbbxvlhkye) .gt_asterisk {
+:where(#uddbadeaaz) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#qbbxvlhkye) .gt_indent_1 {
+:where(#uddbadeaaz) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#qbbxvlhkye) .gt_indent_2 {
+:where(#uddbadeaaz) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#qbbxvlhkye) .gt_indent_3 {
+:where(#uddbadeaaz) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#qbbxvlhkye) .gt_indent_4 {
+:where(#uddbadeaaz) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#qbbxvlhkye) .gt_indent_5 {
+:where(#uddbadeaaz) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1107,11 +1137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Year"</span>, <span class="at">y=</span><span class="st">"Total barrels"</span>, <span class="at">color =</span> <span class="st">"Legend"</span>) <span class="sc">+</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="oil_loss_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="oil_loss.Qmd_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>This looks pretty positive considering the number of recovered barrels is generally higher than the net loss, but this is not the case for every year and still does not make up for the millions of gallons that were never recovered and have likely been polluting the areas near these losses.</p>
@@ -1174,12 +1200,13 @@ that was originally lost.</code></pre>
 <span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="hdsfwtqakg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="qlafuwfkql" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#hdsfwtqakg) .gt_table {
+:where(#qlafuwfkql) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1204,7 +1231,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_heading {
+:where(#qlafuwfkql) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1216,12 +1243,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_caption {
+:where(#qlafuwfkql) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#hdsfwtqakg) .gt_title {
+:where(#qlafuwfkql) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1233,7 +1260,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#hdsfwtqakg) .gt_subtitle {
+:where(#qlafuwfkql) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1245,13 +1272,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#hdsfwtqakg) .gt_bottom_border {
+:where(#qlafuwfkql) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_col_headings {
+:where(#qlafuwfkql) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1266,7 +1293,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_col_heading {
+:where(#qlafuwfkql) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1286,7 +1313,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#hdsfwtqakg) .gt_column_spanner_outer {
+:where(#qlafuwfkql) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1298,15 +1325,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#hdsfwtqakg) .gt_column_spanner_outer:first-child {
+:where(#qlafuwfkql) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#hdsfwtqakg) .gt_column_spanner_outer:last-child {
+:where(#qlafuwfkql) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#hdsfwtqakg) .gt_column_spanner {
+:where(#qlafuwfkql) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1318,7 +1345,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#hdsfwtqakg) .gt_group_heading {
+:where(#qlafuwfkql) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1344,7 +1371,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#hdsfwtqakg) .gt_empty_group_heading {
+:where(#qlafuwfkql) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1359,15 +1386,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#hdsfwtqakg) .gt_from_md > :first-child {
+:where(#qlafuwfkql) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#hdsfwtqakg) .gt_from_md > :last-child {
+:where(#qlafuwfkql) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#hdsfwtqakg) .gt_row {
+:where(#qlafuwfkql) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1386,7 +1413,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#hdsfwtqakg) .gt_stub {
+:where(#qlafuwfkql) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1399,7 +1426,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#hdsfwtqakg) .gt_stub_row_group {
+:where(#qlafuwfkql) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1413,11 +1440,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#hdsfwtqakg) .gt_row_group_first td {
+:where(#qlafuwfkql) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#hdsfwtqakg) .gt_summary_row {
+:where(#qlafuwfkql) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1427,16 +1454,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#hdsfwtqakg) .gt_first_summary_row {
+:where(#qlafuwfkql) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_first_summary_row.thick {
+:where(#qlafuwfkql) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#hdsfwtqakg) .gt_last_summary_row {
+:where(#qlafuwfkql) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1446,7 +1473,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_grand_summary_row {
+:where(#qlafuwfkql) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1456,7 +1483,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#hdsfwtqakg) .gt_first_grand_summary_row {
+:where(#qlafuwfkql) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1466,11 +1493,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_striped {
+:where(#qlafuwfkql) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#hdsfwtqakg) .gt_table_body {
+:where(#qlafuwfkql) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1479,7 +1506,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_footnotes {
+:where(#qlafuwfkql) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1493,7 +1520,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_footnote {
+:where(#qlafuwfkql) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1502,7 +1529,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#hdsfwtqakg) .gt_sourcenotes {
+:where(#qlafuwfkql) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1516,7 +1543,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#hdsfwtqakg) .gt_sourcenote {
+:where(#qlafuwfkql) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1524,64 +1551,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#hdsfwtqakg) .gt_left {
+:where(#qlafuwfkql) .gt_left {
   text-align: left;
 }
 
-:where(#hdsfwtqakg) .gt_center {
+:where(#qlafuwfkql) .gt_center {
   text-align: center;
 }
 
-:where(#hdsfwtqakg) .gt_right {
+:where(#qlafuwfkql) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#hdsfwtqakg) .gt_font_normal {
+:where(#qlafuwfkql) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#hdsfwtqakg) .gt_font_bold {
+:where(#qlafuwfkql) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#hdsfwtqakg) .gt_font_italic {
+:where(#qlafuwfkql) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#hdsfwtqakg) .gt_super {
+:where(#qlafuwfkql) .gt_super {
   font-size: 65%;
 }
 
-:where(#hdsfwtqakg) .gt_footnote_marks {
+:where(#qlafuwfkql) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#hdsfwtqakg) .gt_asterisk {
+:where(#qlafuwfkql) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#hdsfwtqakg) .gt_indent_1 {
+:where(#qlafuwfkql) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#hdsfwtqakg) .gt_indent_2 {
+:where(#qlafuwfkql) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#hdsfwtqakg) .gt_indent_3 {
+:where(#qlafuwfkql) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#hdsfwtqakg) .gt_indent_4 {
+:where(#qlafuwfkql) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#hdsfwtqakg) .gt_indent_5 {
+:where(#qlafuwfkql) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1655,12 +1682,13 @@ that was originally lost.</code></pre>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="pddulucwmx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="kzcdclouqd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pddulucwmx) .gt_table {
+:where(#kzcdclouqd) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1685,7 +1713,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_heading {
+:where(#kzcdclouqd) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1697,12 +1725,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_caption {
+:where(#kzcdclouqd) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#pddulucwmx) .gt_title {
+:where(#kzcdclouqd) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1714,7 +1742,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#pddulucwmx) .gt_subtitle {
+:where(#kzcdclouqd) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1726,13 +1754,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#pddulucwmx) .gt_bottom_border {
+:where(#kzcdclouqd) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_col_headings {
+:where(#kzcdclouqd) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1747,7 +1775,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_col_heading {
+:where(#kzcdclouqd) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1767,7 +1795,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#pddulucwmx) .gt_column_spanner_outer {
+:where(#kzcdclouqd) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1779,15 +1807,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#pddulucwmx) .gt_column_spanner_outer:first-child {
+:where(#kzcdclouqd) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pddulucwmx) .gt_column_spanner_outer:last-child {
+:where(#kzcdclouqd) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pddulucwmx) .gt_column_spanner {
+:where(#kzcdclouqd) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1799,7 +1827,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#pddulucwmx) .gt_group_heading {
+:where(#kzcdclouqd) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1825,7 +1853,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#pddulucwmx) .gt_empty_group_heading {
+:where(#kzcdclouqd) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1840,15 +1868,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#pddulucwmx) .gt_from_md > :first-child {
+:where(#kzcdclouqd) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pddulucwmx) .gt_from_md > :last-child {
+:where(#kzcdclouqd) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pddulucwmx) .gt_row {
+:where(#kzcdclouqd) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1867,7 +1895,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#pddulucwmx) .gt_stub {
+:where(#kzcdclouqd) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1880,7 +1908,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#pddulucwmx) .gt_stub_row_group {
+:where(#kzcdclouqd) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1894,11 +1922,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#pddulucwmx) .gt_row_group_first td {
+:where(#kzcdclouqd) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pddulucwmx) .gt_summary_row {
+:where(#kzcdclouqd) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1908,16 +1936,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#pddulucwmx) .gt_first_summary_row {
+:where(#kzcdclouqd) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_first_summary_row.thick {
+:where(#kzcdclouqd) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pddulucwmx) .gt_last_summary_row {
+:where(#kzcdclouqd) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1927,7 +1955,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_grand_summary_row {
+:where(#kzcdclouqd) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1937,7 +1965,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#pddulucwmx) .gt_first_grand_summary_row {
+:where(#kzcdclouqd) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1947,11 +1975,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_striped {
+:where(#kzcdclouqd) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pddulucwmx) .gt_table_body {
+:where(#kzcdclouqd) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1960,7 +1988,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_footnotes {
+:where(#kzcdclouqd) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1974,7 +2002,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_footnote {
+:where(#kzcdclouqd) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1983,7 +2011,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#pddulucwmx) .gt_sourcenotes {
+:where(#kzcdclouqd) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1997,7 +2025,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pddulucwmx) .gt_sourcenote {
+:where(#kzcdclouqd) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2005,64 +2033,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#pddulucwmx) .gt_left {
+:where(#kzcdclouqd) .gt_left {
   text-align: left;
 }
 
-:where(#pddulucwmx) .gt_center {
+:where(#kzcdclouqd) .gt_center {
   text-align: center;
 }
 
-:where(#pddulucwmx) .gt_right {
+:where(#kzcdclouqd) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pddulucwmx) .gt_font_normal {
+:where(#kzcdclouqd) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pddulucwmx) .gt_font_bold {
+:where(#kzcdclouqd) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pddulucwmx) .gt_font_italic {
+:where(#kzcdclouqd) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pddulucwmx) .gt_super {
+:where(#kzcdclouqd) .gt_super {
   font-size: 65%;
 }
 
-:where(#pddulucwmx) .gt_footnote_marks {
+:where(#kzcdclouqd) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pddulucwmx) .gt_asterisk {
+:where(#kzcdclouqd) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pddulucwmx) .gt_indent_1 {
+:where(#kzcdclouqd) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#pddulucwmx) .gt_indent_2 {
+:where(#kzcdclouqd) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#pddulucwmx) .gt_indent_3 {
+:where(#kzcdclouqd) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#pddulucwmx) .gt_indent_4 {
+:where(#kzcdclouqd) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#pddulucwmx) .gt_indent_5 {
+:where(#kzcdclouqd) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2130,12 +2158,13 @@ that was originally lost.</code></pre>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="qesvtxukqd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="niejiyqmhi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#qesvtxukqd) .gt_table {
+:where(#niejiyqmhi) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2160,7 +2189,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_heading {
+:where(#niejiyqmhi) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2172,12 +2201,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_caption {
+:where(#niejiyqmhi) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#qesvtxukqd) .gt_title {
+:where(#niejiyqmhi) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2189,7 +2218,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#qesvtxukqd) .gt_subtitle {
+:where(#niejiyqmhi) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2201,13 +2230,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#qesvtxukqd) .gt_bottom_border {
+:where(#niejiyqmhi) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_col_headings {
+:where(#niejiyqmhi) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2222,7 +2251,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_col_heading {
+:where(#niejiyqmhi) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2242,7 +2271,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#qesvtxukqd) .gt_column_spanner_outer {
+:where(#niejiyqmhi) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2254,15 +2283,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#qesvtxukqd) .gt_column_spanner_outer:first-child {
+:where(#niejiyqmhi) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#qesvtxukqd) .gt_column_spanner_outer:last-child {
+:where(#niejiyqmhi) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#qesvtxukqd) .gt_column_spanner {
+:where(#niejiyqmhi) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2274,7 +2303,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#qesvtxukqd) .gt_group_heading {
+:where(#niejiyqmhi) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2300,7 +2329,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#qesvtxukqd) .gt_empty_group_heading {
+:where(#niejiyqmhi) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2315,15 +2344,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#qesvtxukqd) .gt_from_md > :first-child {
+:where(#niejiyqmhi) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#qesvtxukqd) .gt_from_md > :last-child {
+:where(#niejiyqmhi) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#qesvtxukqd) .gt_row {
+:where(#niejiyqmhi) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2342,7 +2371,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#qesvtxukqd) .gt_stub {
+:where(#niejiyqmhi) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2355,7 +2384,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qesvtxukqd) .gt_stub_row_group {
+:where(#niejiyqmhi) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2369,11 +2398,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#qesvtxukqd) .gt_row_group_first td {
+:where(#niejiyqmhi) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#qesvtxukqd) .gt_summary_row {
+:where(#niejiyqmhi) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2383,16 +2412,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qesvtxukqd) .gt_first_summary_row {
+:where(#niejiyqmhi) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_first_summary_row.thick {
+:where(#niejiyqmhi) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#qesvtxukqd) .gt_last_summary_row {
+:where(#niejiyqmhi) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2402,7 +2431,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_grand_summary_row {
+:where(#niejiyqmhi) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2412,7 +2441,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qesvtxukqd) .gt_first_grand_summary_row {
+:where(#niejiyqmhi) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2422,11 +2451,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_striped {
+:where(#niejiyqmhi) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#qesvtxukqd) .gt_table_body {
+:where(#niejiyqmhi) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2435,7 +2464,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_footnotes {
+:where(#niejiyqmhi) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2449,7 +2478,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_footnote {
+:where(#niejiyqmhi) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2458,7 +2487,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qesvtxukqd) .gt_sourcenotes {
+:where(#niejiyqmhi) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2472,7 +2501,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qesvtxukqd) .gt_sourcenote {
+:where(#niejiyqmhi) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2480,64 +2509,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qesvtxukqd) .gt_left {
+:where(#niejiyqmhi) .gt_left {
   text-align: left;
 }
 
-:where(#qesvtxukqd) .gt_center {
+:where(#niejiyqmhi) .gt_center {
   text-align: center;
 }
 
-:where(#qesvtxukqd) .gt_right {
+:where(#niejiyqmhi) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#qesvtxukqd) .gt_font_normal {
+:where(#niejiyqmhi) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#qesvtxukqd) .gt_font_bold {
+:where(#niejiyqmhi) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#qesvtxukqd) .gt_font_italic {
+:where(#niejiyqmhi) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#qesvtxukqd) .gt_super {
+:where(#niejiyqmhi) .gt_super {
   font-size: 65%;
 }
 
-:where(#qesvtxukqd) .gt_footnote_marks {
+:where(#niejiyqmhi) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#qesvtxukqd) .gt_asterisk {
+:where(#niejiyqmhi) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#qesvtxukqd) .gt_indent_1 {
+:where(#niejiyqmhi) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#qesvtxukqd) .gt_indent_2 {
+:where(#niejiyqmhi) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#qesvtxukqd) .gt_indent_3 {
+:where(#niejiyqmhi) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#qesvtxukqd) .gt_indent_4 {
+:where(#niejiyqmhi) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#qesvtxukqd) .gt_indent_5 {
+:where(#niejiyqmhi) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2645,12 +2674,13 @@ that was originally lost.</code></pre>
 <span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="xtskjmsvpf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="wppyiauhdl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#xtskjmsvpf) .gt_table {
+:where(#wppyiauhdl) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2675,7 +2705,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_heading {
+:where(#wppyiauhdl) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2687,12 +2717,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_caption {
+:where(#wppyiauhdl) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#xtskjmsvpf) .gt_title {
+:where(#wppyiauhdl) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2704,7 +2734,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#xtskjmsvpf) .gt_subtitle {
+:where(#wppyiauhdl) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2716,13 +2746,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#xtskjmsvpf) .gt_bottom_border {
+:where(#wppyiauhdl) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_col_headings {
+:where(#wppyiauhdl) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2737,7 +2767,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_col_heading {
+:where(#wppyiauhdl) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2757,7 +2787,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#xtskjmsvpf) .gt_column_spanner_outer {
+:where(#wppyiauhdl) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2769,15 +2799,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#xtskjmsvpf) .gt_column_spanner_outer:first-child {
+:where(#wppyiauhdl) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#xtskjmsvpf) .gt_column_spanner_outer:last-child {
+:where(#wppyiauhdl) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#xtskjmsvpf) .gt_column_spanner {
+:where(#wppyiauhdl) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2789,7 +2819,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#xtskjmsvpf) .gt_group_heading {
+:where(#wppyiauhdl) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2815,7 +2845,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#xtskjmsvpf) .gt_empty_group_heading {
+:where(#wppyiauhdl) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2830,15 +2860,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#xtskjmsvpf) .gt_from_md > :first-child {
+:where(#wppyiauhdl) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#xtskjmsvpf) .gt_from_md > :last-child {
+:where(#wppyiauhdl) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#xtskjmsvpf) .gt_row {
+:where(#wppyiauhdl) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2857,7 +2887,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#xtskjmsvpf) .gt_stub {
+:where(#wppyiauhdl) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2870,7 +2900,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xtskjmsvpf) .gt_stub_row_group {
+:where(#wppyiauhdl) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2884,11 +2914,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#xtskjmsvpf) .gt_row_group_first td {
+:where(#wppyiauhdl) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#xtskjmsvpf) .gt_summary_row {
+:where(#wppyiauhdl) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2898,16 +2928,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xtskjmsvpf) .gt_first_summary_row {
+:where(#wppyiauhdl) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_first_summary_row.thick {
+:where(#wppyiauhdl) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#xtskjmsvpf) .gt_last_summary_row {
+:where(#wppyiauhdl) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2917,7 +2947,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_grand_summary_row {
+:where(#wppyiauhdl) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2927,7 +2957,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xtskjmsvpf) .gt_first_grand_summary_row {
+:where(#wppyiauhdl) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2937,11 +2967,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_striped {
+:where(#wppyiauhdl) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#xtskjmsvpf) .gt_table_body {
+:where(#wppyiauhdl) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2950,7 +2980,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_footnotes {
+:where(#wppyiauhdl) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2964,7 +2994,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_footnote {
+:where(#wppyiauhdl) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2973,7 +3003,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xtskjmsvpf) .gt_sourcenotes {
+:where(#wppyiauhdl) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2987,7 +3017,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xtskjmsvpf) .gt_sourcenote {
+:where(#wppyiauhdl) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2995,64 +3025,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xtskjmsvpf) .gt_left {
+:where(#wppyiauhdl) .gt_left {
   text-align: left;
 }
 
-:where(#xtskjmsvpf) .gt_center {
+:where(#wppyiauhdl) .gt_center {
   text-align: center;
 }
 
-:where(#xtskjmsvpf) .gt_right {
+:where(#wppyiauhdl) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#xtskjmsvpf) .gt_font_normal {
+:where(#wppyiauhdl) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#xtskjmsvpf) .gt_font_bold {
+:where(#wppyiauhdl) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#xtskjmsvpf) .gt_font_italic {
+:where(#wppyiauhdl) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#xtskjmsvpf) .gt_super {
+:where(#wppyiauhdl) .gt_super {
   font-size: 65%;
 }
 
-:where(#xtskjmsvpf) .gt_footnote_marks {
+:where(#wppyiauhdl) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#xtskjmsvpf) .gt_asterisk {
+:where(#wppyiauhdl) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#xtskjmsvpf) .gt_indent_1 {
+:where(#wppyiauhdl) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#xtskjmsvpf) .gt_indent_2 {
+:where(#wppyiauhdl) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#xtskjmsvpf) .gt_indent_3 {
+:where(#wppyiauhdl) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#xtskjmsvpf) .gt_indent_4 {
+:where(#wppyiauhdl) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#xtskjmsvpf) .gt_indent_5 {
+:where(#wppyiauhdl) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3198,12 +3228,13 @@ that was originally lost.</code></pre>
 <span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="phdwpanbfy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="egjdscbvdt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#phdwpanbfy) .gt_table {
+:where(#egjdscbvdt) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3228,7 +3259,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_heading {
+:where(#egjdscbvdt) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3240,12 +3271,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_caption {
+:where(#egjdscbvdt) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#phdwpanbfy) .gt_title {
+:where(#egjdscbvdt) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3257,7 +3288,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#phdwpanbfy) .gt_subtitle {
+:where(#egjdscbvdt) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3269,13 +3300,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#phdwpanbfy) .gt_bottom_border {
+:where(#egjdscbvdt) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_col_headings {
+:where(#egjdscbvdt) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3290,7 +3321,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_col_heading {
+:where(#egjdscbvdt) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3310,7 +3341,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#phdwpanbfy) .gt_column_spanner_outer {
+:where(#egjdscbvdt) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3322,15 +3353,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#phdwpanbfy) .gt_column_spanner_outer:first-child {
+:where(#egjdscbvdt) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#phdwpanbfy) .gt_column_spanner_outer:last-child {
+:where(#egjdscbvdt) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#phdwpanbfy) .gt_column_spanner {
+:where(#egjdscbvdt) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3342,7 +3373,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#phdwpanbfy) .gt_group_heading {
+:where(#egjdscbvdt) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3368,7 +3399,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#phdwpanbfy) .gt_empty_group_heading {
+:where(#egjdscbvdt) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3383,15 +3414,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#phdwpanbfy) .gt_from_md > :first-child {
+:where(#egjdscbvdt) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#phdwpanbfy) .gt_from_md > :last-child {
+:where(#egjdscbvdt) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#phdwpanbfy) .gt_row {
+:where(#egjdscbvdt) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3410,7 +3441,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#phdwpanbfy) .gt_stub {
+:where(#egjdscbvdt) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3423,7 +3454,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#phdwpanbfy) .gt_stub_row_group {
+:where(#egjdscbvdt) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3437,11 +3468,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#phdwpanbfy) .gt_row_group_first td {
+:where(#egjdscbvdt) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#phdwpanbfy) .gt_summary_row {
+:where(#egjdscbvdt) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3451,16 +3482,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#phdwpanbfy) .gt_first_summary_row {
+:where(#egjdscbvdt) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_first_summary_row.thick {
+:where(#egjdscbvdt) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#phdwpanbfy) .gt_last_summary_row {
+:where(#egjdscbvdt) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3470,7 +3501,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_grand_summary_row {
+:where(#egjdscbvdt) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3480,7 +3511,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#phdwpanbfy) .gt_first_grand_summary_row {
+:where(#egjdscbvdt) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3490,11 +3521,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_striped {
+:where(#egjdscbvdt) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#phdwpanbfy) .gt_table_body {
+:where(#egjdscbvdt) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3503,7 +3534,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_footnotes {
+:where(#egjdscbvdt) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3517,7 +3548,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_footnote {
+:where(#egjdscbvdt) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3526,7 +3557,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#phdwpanbfy) .gt_sourcenotes {
+:where(#egjdscbvdt) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3540,7 +3571,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#phdwpanbfy) .gt_sourcenote {
+:where(#egjdscbvdt) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3548,64 +3579,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#phdwpanbfy) .gt_left {
+:where(#egjdscbvdt) .gt_left {
   text-align: left;
 }
 
-:where(#phdwpanbfy) .gt_center {
+:where(#egjdscbvdt) .gt_center {
   text-align: center;
 }
 
-:where(#phdwpanbfy) .gt_right {
+:where(#egjdscbvdt) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#phdwpanbfy) .gt_font_normal {
+:where(#egjdscbvdt) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#phdwpanbfy) .gt_font_bold {
+:where(#egjdscbvdt) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#phdwpanbfy) .gt_font_italic {
+:where(#egjdscbvdt) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#phdwpanbfy) .gt_super {
+:where(#egjdscbvdt) .gt_super {
   font-size: 65%;
 }
 
-:where(#phdwpanbfy) .gt_footnote_marks {
+:where(#egjdscbvdt) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#phdwpanbfy) .gt_asterisk {
+:where(#egjdscbvdt) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#phdwpanbfy) .gt_indent_1 {
+:where(#egjdscbvdt) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#phdwpanbfy) .gt_indent_2 {
+:where(#egjdscbvdt) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#phdwpanbfy) .gt_indent_3 {
+:where(#egjdscbvdt) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#phdwpanbfy) .gt_indent_4 {
+:where(#egjdscbvdt) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#phdwpanbfy) .gt_indent_5 {
+:where(#egjdscbvdt) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3668,12 +3699,13 @@ that was originally lost.</code></pre>
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="woizurpebs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="bhqhklfwfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#woizurpebs) .gt_table {
+:where(#bhqhklfwfa) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3698,7 +3730,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_heading {
+:where(#bhqhklfwfa) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3710,12 +3742,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_caption {
+:where(#bhqhklfwfa) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#woizurpebs) .gt_title {
+:where(#bhqhklfwfa) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3727,7 +3759,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#woizurpebs) .gt_subtitle {
+:where(#bhqhklfwfa) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3739,13 +3771,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#woizurpebs) .gt_bottom_border {
+:where(#bhqhklfwfa) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_col_headings {
+:where(#bhqhklfwfa) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3760,7 +3792,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_col_heading {
+:where(#bhqhklfwfa) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3780,7 +3812,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#woizurpebs) .gt_column_spanner_outer {
+:where(#bhqhklfwfa) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3792,15 +3824,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#woizurpebs) .gt_column_spanner_outer:first-child {
+:where(#bhqhklfwfa) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#woizurpebs) .gt_column_spanner_outer:last-child {
+:where(#bhqhklfwfa) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#woizurpebs) .gt_column_spanner {
+:where(#bhqhklfwfa) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3812,7 +3844,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#woizurpebs) .gt_group_heading {
+:where(#bhqhklfwfa) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3838,7 +3870,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#woizurpebs) .gt_empty_group_heading {
+:where(#bhqhklfwfa) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3853,15 +3885,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#woizurpebs) .gt_from_md > :first-child {
+:where(#bhqhklfwfa) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#woizurpebs) .gt_from_md > :last-child {
+:where(#bhqhklfwfa) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#woizurpebs) .gt_row {
+:where(#bhqhklfwfa) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3880,7 +3912,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#woizurpebs) .gt_stub {
+:where(#bhqhklfwfa) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3893,7 +3925,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#woizurpebs) .gt_stub_row_group {
+:where(#bhqhklfwfa) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3907,11 +3939,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#woizurpebs) .gt_row_group_first td {
+:where(#bhqhklfwfa) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#woizurpebs) .gt_summary_row {
+:where(#bhqhklfwfa) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3921,16 +3953,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#woizurpebs) .gt_first_summary_row {
+:where(#bhqhklfwfa) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_first_summary_row.thick {
+:where(#bhqhklfwfa) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#woizurpebs) .gt_last_summary_row {
+:where(#bhqhklfwfa) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3940,7 +3972,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_grand_summary_row {
+:where(#bhqhklfwfa) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3950,7 +3982,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#woizurpebs) .gt_first_grand_summary_row {
+:where(#bhqhklfwfa) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3960,11 +3992,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_striped {
+:where(#bhqhklfwfa) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#woizurpebs) .gt_table_body {
+:where(#bhqhklfwfa) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3973,7 +4005,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_footnotes {
+:where(#bhqhklfwfa) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3987,7 +4019,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_footnote {
+:where(#bhqhklfwfa) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3996,7 +4028,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#woizurpebs) .gt_sourcenotes {
+:where(#bhqhklfwfa) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4010,7 +4042,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#woizurpebs) .gt_sourcenote {
+:where(#bhqhklfwfa) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4018,64 +4050,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#woizurpebs) .gt_left {
+:where(#bhqhklfwfa) .gt_left {
   text-align: left;
 }
 
-:where(#woizurpebs) .gt_center {
+:where(#bhqhklfwfa) .gt_center {
   text-align: center;
 }
 
-:where(#woizurpebs) .gt_right {
+:where(#bhqhklfwfa) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#woizurpebs) .gt_font_normal {
+:where(#bhqhklfwfa) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#woizurpebs) .gt_font_bold {
+:where(#bhqhklfwfa) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#woizurpebs) .gt_font_italic {
+:where(#bhqhklfwfa) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#woizurpebs) .gt_super {
+:where(#bhqhklfwfa) .gt_super {
   font-size: 65%;
 }
 
-:where(#woizurpebs) .gt_footnote_marks {
+:where(#bhqhklfwfa) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#woizurpebs) .gt_asterisk {
+:where(#bhqhklfwfa) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#woizurpebs) .gt_indent_1 {
+:where(#bhqhklfwfa) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#woizurpebs) .gt_indent_2 {
+:where(#bhqhklfwfa) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#woizurpebs) .gt_indent_3 {
+:where(#bhqhklfwfa) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#woizurpebs) .gt_indent_4 {
+:where(#bhqhklfwfa) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#woizurpebs) .gt_indent_5 {
+:where(#bhqhklfwfa) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4143,12 +4175,13 @@ that was originally lost.</code></pre>
 <span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="luendpkwub" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="cmigqgyjam" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#luendpkwub) .gt_table {
+:where(#cmigqgyjam) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -4173,7 +4206,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_heading {
+:where(#cmigqgyjam) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4185,12 +4218,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_caption {
+:where(#cmigqgyjam) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#luendpkwub) .gt_title {
+:where(#cmigqgyjam) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4202,7 +4235,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#luendpkwub) .gt_subtitle {
+:where(#cmigqgyjam) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4214,13 +4247,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#luendpkwub) .gt_bottom_border {
+:where(#cmigqgyjam) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_col_headings {
+:where(#cmigqgyjam) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4235,7 +4268,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_col_heading {
+:where(#cmigqgyjam) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4255,7 +4288,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#luendpkwub) .gt_column_spanner_outer {
+:where(#cmigqgyjam) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4267,15 +4300,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#luendpkwub) .gt_column_spanner_outer:first-child {
+:where(#cmigqgyjam) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#luendpkwub) .gt_column_spanner_outer:last-child {
+:where(#cmigqgyjam) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#luendpkwub) .gt_column_spanner {
+:where(#cmigqgyjam) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4287,7 +4320,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#luendpkwub) .gt_group_heading {
+:where(#cmigqgyjam) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4313,7 +4346,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#luendpkwub) .gt_empty_group_heading {
+:where(#cmigqgyjam) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4328,15 +4361,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#luendpkwub) .gt_from_md > :first-child {
+:where(#cmigqgyjam) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#luendpkwub) .gt_from_md > :last-child {
+:where(#cmigqgyjam) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#luendpkwub) .gt_row {
+:where(#cmigqgyjam) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4355,7 +4388,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#luendpkwub) .gt_stub {
+:where(#cmigqgyjam) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4368,7 +4401,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#luendpkwub) .gt_stub_row_group {
+:where(#cmigqgyjam) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4382,11 +4415,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#luendpkwub) .gt_row_group_first td {
+:where(#cmigqgyjam) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#luendpkwub) .gt_summary_row {
+:where(#cmigqgyjam) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4396,16 +4429,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#luendpkwub) .gt_first_summary_row {
+:where(#cmigqgyjam) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_first_summary_row.thick {
+:where(#cmigqgyjam) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#luendpkwub) .gt_last_summary_row {
+:where(#cmigqgyjam) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4415,7 +4448,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_grand_summary_row {
+:where(#cmigqgyjam) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4425,7 +4458,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#luendpkwub) .gt_first_grand_summary_row {
+:where(#cmigqgyjam) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4435,11 +4468,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_striped {
+:where(#cmigqgyjam) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#luendpkwub) .gt_table_body {
+:where(#cmigqgyjam) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4448,7 +4481,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_footnotes {
+:where(#cmigqgyjam) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4462,7 +4495,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_footnote {
+:where(#cmigqgyjam) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -4471,7 +4504,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#luendpkwub) .gt_sourcenotes {
+:where(#cmigqgyjam) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4485,7 +4518,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#luendpkwub) .gt_sourcenote {
+:where(#cmigqgyjam) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4493,64 +4526,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#luendpkwub) .gt_left {
+:where(#cmigqgyjam) .gt_left {
   text-align: left;
 }
 
-:where(#luendpkwub) .gt_center {
+:where(#cmigqgyjam) .gt_center {
   text-align: center;
 }
 
-:where(#luendpkwub) .gt_right {
+:where(#cmigqgyjam) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#luendpkwub) .gt_font_normal {
+:where(#cmigqgyjam) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#luendpkwub) .gt_font_bold {
+:where(#cmigqgyjam) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#luendpkwub) .gt_font_italic {
+:where(#cmigqgyjam) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#luendpkwub) .gt_super {
+:where(#cmigqgyjam) .gt_super {
   font-size: 65%;
 }
 
-:where(#luendpkwub) .gt_footnote_marks {
+:where(#cmigqgyjam) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#luendpkwub) .gt_asterisk {
+:where(#cmigqgyjam) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#luendpkwub) .gt_indent_1 {
+:where(#cmigqgyjam) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#luendpkwub) .gt_indent_2 {
+:where(#cmigqgyjam) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#luendpkwub) .gt_indent_3 {
+:where(#cmigqgyjam) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#luendpkwub) .gt_indent_4 {
+:where(#cmigqgyjam) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#luendpkwub) .gt_indent_5 {
+:where(#cmigqgyjam) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4619,12 +4652,13 @@ that was originally lost.</code></pre>
 <span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fpxnuxgvqk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="bselwyljvl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#fpxnuxgvqk) .gt_table {
+:where(#bselwyljvl) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -4649,7 +4683,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_heading {
+:where(#bselwyljvl) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4661,12 +4695,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_caption {
+:where(#bselwyljvl) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#fpxnuxgvqk) .gt_title {
+:where(#bselwyljvl) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4678,7 +4712,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#fpxnuxgvqk) .gt_subtitle {
+:where(#bselwyljvl) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4690,13 +4724,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#fpxnuxgvqk) .gt_bottom_border {
+:where(#bselwyljvl) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_col_headings {
+:where(#bselwyljvl) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4711,7 +4745,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_col_heading {
+:where(#bselwyljvl) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4731,7 +4765,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#fpxnuxgvqk) .gt_column_spanner_outer {
+:where(#bselwyljvl) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4743,15 +4777,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#fpxnuxgvqk) .gt_column_spanner_outer:first-child {
+:where(#bselwyljvl) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#fpxnuxgvqk) .gt_column_spanner_outer:last-child {
+:where(#bselwyljvl) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#fpxnuxgvqk) .gt_column_spanner {
+:where(#bselwyljvl) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4763,7 +4797,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#fpxnuxgvqk) .gt_group_heading {
+:where(#bselwyljvl) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4789,7 +4823,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#fpxnuxgvqk) .gt_empty_group_heading {
+:where(#bselwyljvl) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4804,15 +4838,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#fpxnuxgvqk) .gt_from_md > :first-child {
+:where(#bselwyljvl) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#fpxnuxgvqk) .gt_from_md > :last-child {
+:where(#bselwyljvl) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#fpxnuxgvqk) .gt_row {
+:where(#bselwyljvl) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4831,7 +4865,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#fpxnuxgvqk) .gt_stub {
+:where(#bselwyljvl) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4844,7 +4878,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#fpxnuxgvqk) .gt_stub_row_group {
+:where(#bselwyljvl) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4858,11 +4892,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#fpxnuxgvqk) .gt_row_group_first td {
+:where(#bselwyljvl) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#fpxnuxgvqk) .gt_summary_row {
+:where(#bselwyljvl) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4872,16 +4906,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#fpxnuxgvqk) .gt_first_summary_row {
+:where(#bselwyljvl) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_first_summary_row.thick {
+:where(#bselwyljvl) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#fpxnuxgvqk) .gt_last_summary_row {
+:where(#bselwyljvl) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4891,7 +4925,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_grand_summary_row {
+:where(#bselwyljvl) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4901,7 +4935,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#fpxnuxgvqk) .gt_first_grand_summary_row {
+:where(#bselwyljvl) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4911,11 +4945,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_striped {
+:where(#bselwyljvl) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#fpxnuxgvqk) .gt_table_body {
+:where(#bselwyljvl) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4924,7 +4958,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_footnotes {
+:where(#bselwyljvl) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4938,7 +4972,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_footnote {
+:where(#bselwyljvl) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -4947,7 +4981,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#fpxnuxgvqk) .gt_sourcenotes {
+:where(#bselwyljvl) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4961,7 +4995,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#fpxnuxgvqk) .gt_sourcenote {
+:where(#bselwyljvl) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4969,64 +5003,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#fpxnuxgvqk) .gt_left {
+:where(#bselwyljvl) .gt_left {
   text-align: left;
 }
 
-:where(#fpxnuxgvqk) .gt_center {
+:where(#bselwyljvl) .gt_center {
   text-align: center;
 }
 
-:where(#fpxnuxgvqk) .gt_right {
+:where(#bselwyljvl) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#fpxnuxgvqk) .gt_font_normal {
+:where(#bselwyljvl) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#fpxnuxgvqk) .gt_font_bold {
+:where(#bselwyljvl) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#fpxnuxgvqk) .gt_font_italic {
+:where(#bselwyljvl) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#fpxnuxgvqk) .gt_super {
+:where(#bselwyljvl) .gt_super {
   font-size: 65%;
 }
 
-:where(#fpxnuxgvqk) .gt_footnote_marks {
+:where(#bselwyljvl) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#fpxnuxgvqk) .gt_asterisk {
+:where(#bselwyljvl) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#fpxnuxgvqk) .gt_indent_1 {
+:where(#bselwyljvl) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#fpxnuxgvqk) .gt_indent_2 {
+:where(#bselwyljvl) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#fpxnuxgvqk) .gt_indent_3 {
+:where(#bselwyljvl) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#fpxnuxgvqk) .gt_indent_4 {
+:where(#bselwyljvl) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#fpxnuxgvqk) .gt_indent_5 {
+:where(#bselwyljvl) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -5104,12 +5138,13 @@ that was originally lost.</code></pre>
 <span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="qubxojjjix" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="pgmmdzgoqz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#qubxojjjix) .gt_table {
+:where(#pgmmdzgoqz) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -5134,7 +5169,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_heading {
+:where(#pgmmdzgoqz) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -5146,12 +5181,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_caption {
+:where(#pgmmdzgoqz) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#qubxojjjix) .gt_title {
+:where(#pgmmdzgoqz) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5163,7 +5198,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#qubxojjjix) .gt_subtitle {
+:where(#pgmmdzgoqz) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5175,13 +5210,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#qubxojjjix) .gt_bottom_border {
+:where(#pgmmdzgoqz) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_col_headings {
+:where(#pgmmdzgoqz) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5196,7 +5231,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_col_heading {
+:where(#pgmmdzgoqz) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5216,7 +5251,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#qubxojjjix) .gt_column_spanner_outer {
+:where(#pgmmdzgoqz) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5228,15 +5263,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#qubxojjjix) .gt_column_spanner_outer:first-child {
+:where(#pgmmdzgoqz) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#qubxojjjix) .gt_column_spanner_outer:last-child {
+:where(#pgmmdzgoqz) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#qubxojjjix) .gt_column_spanner {
+:where(#pgmmdzgoqz) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5248,7 +5283,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#qubxojjjix) .gt_group_heading {
+:where(#pgmmdzgoqz) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5274,7 +5309,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#qubxojjjix) .gt_empty_group_heading {
+:where(#pgmmdzgoqz) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5289,15 +5324,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#qubxojjjix) .gt_from_md > :first-child {
+:where(#pgmmdzgoqz) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#qubxojjjix) .gt_from_md > :last-child {
+:where(#pgmmdzgoqz) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#qubxojjjix) .gt_row {
+:where(#pgmmdzgoqz) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5316,7 +5351,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#qubxojjjix) .gt_stub {
+:where(#pgmmdzgoqz) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5329,7 +5364,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qubxojjjix) .gt_stub_row_group {
+:where(#pgmmdzgoqz) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5343,11 +5378,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#qubxojjjix) .gt_row_group_first td {
+:where(#pgmmdzgoqz) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#qubxojjjix) .gt_summary_row {
+:where(#pgmmdzgoqz) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5357,16 +5392,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qubxojjjix) .gt_first_summary_row {
+:where(#pgmmdzgoqz) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_first_summary_row.thick {
+:where(#pgmmdzgoqz) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#qubxojjjix) .gt_last_summary_row {
+:where(#pgmmdzgoqz) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5376,7 +5411,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_grand_summary_row {
+:where(#pgmmdzgoqz) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5386,7 +5421,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qubxojjjix) .gt_first_grand_summary_row {
+:where(#pgmmdzgoqz) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5396,11 +5431,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_striped {
+:where(#pgmmdzgoqz) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#qubxojjjix) .gt_table_body {
+:where(#pgmmdzgoqz) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5409,7 +5444,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_footnotes {
+:where(#pgmmdzgoqz) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5423,7 +5458,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_footnote {
+:where(#pgmmdzgoqz) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -5432,7 +5467,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qubxojjjix) .gt_sourcenotes {
+:where(#pgmmdzgoqz) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5446,7 +5481,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#qubxojjjix) .gt_sourcenote {
+:where(#pgmmdzgoqz) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5454,64 +5489,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#qubxojjjix) .gt_left {
+:where(#pgmmdzgoqz) .gt_left {
   text-align: left;
 }
 
-:where(#qubxojjjix) .gt_center {
+:where(#pgmmdzgoqz) .gt_center {
   text-align: center;
 }
 
-:where(#qubxojjjix) .gt_right {
+:where(#pgmmdzgoqz) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#qubxojjjix) .gt_font_normal {
+:where(#pgmmdzgoqz) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#qubxojjjix) .gt_font_bold {
+:where(#pgmmdzgoqz) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#qubxojjjix) .gt_font_italic {
+:where(#pgmmdzgoqz) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#qubxojjjix) .gt_super {
+:where(#pgmmdzgoqz) .gt_super {
   font-size: 65%;
 }
 
-:where(#qubxojjjix) .gt_footnote_marks {
+:where(#pgmmdzgoqz) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#qubxojjjix) .gt_asterisk {
+:where(#pgmmdzgoqz) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#qubxojjjix) .gt_indent_1 {
+:where(#pgmmdzgoqz) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#qubxojjjix) .gt_indent_2 {
+:where(#pgmmdzgoqz) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#qubxojjjix) .gt_indent_3 {
+:where(#pgmmdzgoqz) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#qubxojjjix) .gt_indent_4 {
+:where(#pgmmdzgoqz) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#qubxojjjix) .gt_indent_5 {
+:where(#pgmmdzgoqz) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -5580,12 +5615,13 @@ that was originally lost.</code></pre>
 <span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="xxrrhhqtdv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<div id="uyapyxfsbb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#xxrrhhqtdv) .gt_table {
+:where(#uyapyxfsbb) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -5610,7 +5646,7 @@ that was originally lost.</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_heading {
+:where(#uyapyxfsbb) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -5622,12 +5658,12 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_caption {
+:where(#uyapyxfsbb) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#xxrrhhqtdv) .gt_title {
+:where(#uyapyxfsbb) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5639,7 +5675,7 @@ that was originally lost.</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#xxrrhhqtdv) .gt_subtitle {
+:where(#uyapyxfsbb) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5651,13 +5687,13 @@ that was originally lost.</code></pre>
   border-top-width: 0;
 }
 
-:where(#xxrrhhqtdv) .gt_bottom_border {
+:where(#uyapyxfsbb) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_col_headings {
+:where(#uyapyxfsbb) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5672,7 +5708,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_col_heading {
+:where(#uyapyxfsbb) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5692,7 +5728,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#xxrrhhqtdv) .gt_column_spanner_outer {
+:where(#uyapyxfsbb) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5704,15 +5740,15 @@ that was originally lost.</code></pre>
   padding-right: 4px;
 }
 
-:where(#xxrrhhqtdv) .gt_column_spanner_outer:first-child {
+:where(#uyapyxfsbb) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#xxrrhhqtdv) .gt_column_spanner_outer:last-child {
+:where(#uyapyxfsbb) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#xxrrhhqtdv) .gt_column_spanner {
+:where(#uyapyxfsbb) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5724,7 +5760,7 @@ that was originally lost.</code></pre>
   width: 100%;
 }
 
-:where(#xxrrhhqtdv) .gt_group_heading {
+:where(#uyapyxfsbb) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5750,7 +5786,7 @@ that was originally lost.</code></pre>
   text-align: left;
 }
 
-:where(#xxrrhhqtdv) .gt_empty_group_heading {
+:where(#uyapyxfsbb) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5765,15 +5801,15 @@ that was originally lost.</code></pre>
   vertical-align: middle;
 }
 
-:where(#xxrrhhqtdv) .gt_from_md > :first-child {
+:where(#uyapyxfsbb) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#xxrrhhqtdv) .gt_from_md > :last-child {
+:where(#uyapyxfsbb) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#xxrrhhqtdv) .gt_row {
+:where(#uyapyxfsbb) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5792,7 +5828,7 @@ that was originally lost.</code></pre>
   overflow-x: hidden;
 }
 
-:where(#xxrrhhqtdv) .gt_stub {
+:where(#uyapyxfsbb) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5805,7 +5841,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xxrrhhqtdv) .gt_stub_row_group {
+:where(#uyapyxfsbb) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5819,11 +5855,11 @@ that was originally lost.</code></pre>
   vertical-align: top;
 }
 
-:where(#xxrrhhqtdv) .gt_row_group_first td {
+:where(#uyapyxfsbb) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#xxrrhhqtdv) .gt_summary_row {
+:where(#uyapyxfsbb) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5833,16 +5869,16 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xxrrhhqtdv) .gt_first_summary_row {
+:where(#uyapyxfsbb) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_first_summary_row.thick {
+:where(#uyapyxfsbb) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#xxrrhhqtdv) .gt_last_summary_row {
+:where(#uyapyxfsbb) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5852,7 +5888,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_grand_summary_row {
+:where(#uyapyxfsbb) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5862,7 +5898,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xxrrhhqtdv) .gt_first_grand_summary_row {
+:where(#uyapyxfsbb) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5872,11 +5908,11 @@ that was originally lost.</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_striped {
+:where(#uyapyxfsbb) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#xxrrhhqtdv) .gt_table_body {
+:where(#uyapyxfsbb) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5885,7 +5921,7 @@ that was originally lost.</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_footnotes {
+:where(#uyapyxfsbb) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5899,7 +5935,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_footnote {
+:where(#uyapyxfsbb) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -5908,7 +5944,7 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xxrrhhqtdv) .gt_sourcenotes {
+:where(#uyapyxfsbb) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5922,7 +5958,7 @@ that was originally lost.</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#xxrrhhqtdv) .gt_sourcenote {
+:where(#uyapyxfsbb) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5930,64 +5966,64 @@ that was originally lost.</code></pre>
   padding-right: 5px;
 }
 
-:where(#xxrrhhqtdv) .gt_left {
+:where(#uyapyxfsbb) .gt_left {
   text-align: left;
 }
 
-:where(#xxrrhhqtdv) .gt_center {
+:where(#uyapyxfsbb) .gt_center {
   text-align: center;
 }
 
-:where(#xxrrhhqtdv) .gt_right {
+:where(#uyapyxfsbb) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#xxrrhhqtdv) .gt_font_normal {
+:where(#uyapyxfsbb) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#xxrrhhqtdv) .gt_font_bold {
+:where(#uyapyxfsbb) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#xxrrhhqtdv) .gt_font_italic {
+:where(#uyapyxfsbb) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#xxrrhhqtdv) .gt_super {
+:where(#uyapyxfsbb) .gt_super {
   font-size: 65%;
 }
 
-:where(#xxrrhhqtdv) .gt_footnote_marks {
+:where(#uyapyxfsbb) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#xxrrhhqtdv) .gt_asterisk {
+:where(#uyapyxfsbb) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#xxrrhhqtdv) .gt_indent_1 {
+:where(#uyapyxfsbb) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#xxrrhhqtdv) .gt_indent_2 {
+:where(#uyapyxfsbb) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#xxrrhhqtdv) .gt_indent_3 {
+:where(#uyapyxfsbb) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#xxrrhhqtdv) .gt_indent_4 {
+:where(#uyapyxfsbb) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#xxrrhhqtdv) .gt_indent_5 {
+:where(#uyapyxfsbb) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -6085,15 +6121,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -6125,50 +6158,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -6178,17 +6172,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -6200,245 +6185,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -6479,7 +6228,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
