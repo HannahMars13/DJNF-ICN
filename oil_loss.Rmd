@@ -2,9 +2,9 @@
 title: ""
 author: ""
 date: ""
-format: 
-  html:
-    theme: journal
+output: 
+  html_document:
+    theme: flatly
 ---
 
 # Oil Companies in Texas Lose Thousands of Barrels Per Year
@@ -13,9 +13,9 @@ format:
 
 <br>
 
-###### Hannah Marszalek
+#### Hannah Marszalek
 
-###### June 8, 2024
+#### June 8, 2024
 
 <br>
 
@@ -135,7 +135,7 @@ recovered_2023 <- oil_loss %>%
   filter(master_year==2023) %>% 
   summarize(total_lost = sum(gross_loss, na.rm=TRUE), total_recovered = sum(recovered, na.rm=TRUE), pct_recovered = round((total_recovered/total_lost)*100, 2))
 
-cat(recovered_2023$total_recovered, "barrels were recovered in 2023, which is only", recovered_2023$pct_recovered, "% of the amount of oil \nthat was originally lost.")
+cat(recovered_2023$total_recovered, "barrels were recovered in 2023, which is only", recovered_2023$pct_recovered, "% of the amount of oil that was originally \nlost.")
 
 #Creating a new column to calculate what percent of the losses typically gets recovered
 pct_recovered <- oil_loss %>% 
@@ -478,5 +478,5 @@ equip_remedies <- oil_loss %>%
   filter(remedy=="Repaired Existing Equipment") %>% 
   count()
 
-cat(equip_remedies$n, "of the incidents caused by equipment failure or corrosion cited equipment \nrepair as a remedy.")
+cat(equip_remedies$n, "of the incidents caused by equipment failure or corrosion cited equipment repair as a remedy.")
 ```
