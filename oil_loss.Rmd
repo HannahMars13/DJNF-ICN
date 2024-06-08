@@ -477,7 +477,7 @@ equip_failures %>%
 #Total number of incidents caused by equipment failure that cited repairing the equipment as their remedial measure
 equip_remedies <- oil_loss %>% 
   filter(causeof_loss=="Equipment Failure"|causeof_loss=="Corrosion - Rust") %>% 
-  filter(remedy=="Repaired Existing Equipment") %>% 
+  filter(remedy=="Repaired Existing Equipment"|remedy=="Installed New Equipment") %>% 
   count()
 
 cat(equip_remedies$n, "of the incidents caused by equipment failure or corrosion cited equipment repair as a remedy.")
