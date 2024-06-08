@@ -11,9 +11,13 @@ format:
 
 ### The mining, quarrying, and oil and gas extraction industry is one of Texas' most profitable, yet every year many companies experience major losses.
 
-Hannah Marszalek
+<br>
 
-June 8, 2024
+###### Hannah Marszalek
+
+###### June 8, 2024
+
+<br>
 
 Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 --- enough oil to fill 37 Olympic swimming pools. The companies are required to [fill out a form known as an H-8](https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf) and submit it to the Railroad Commission of Texas each time such an event occurs, but this information leaves room for plenty of questions regarding the effects and frequency of such events.
 
@@ -131,7 +135,7 @@ recovered_2023 <- oil_loss %>%
   filter(master_year==2023) %>% 
   summarize(total_lost = sum(gross_loss, na.rm=TRUE), total_recovered = sum(recovered, na.rm=TRUE), pct_recovered = round((total_recovered/total_lost)*100, 2))
 
-cat(recovered_2023$total_recovered, "barrels were recovered in 2023, which is only", recovered_2023$pct_recovered, "% of the amount of oil that was originally lost.")
+cat(recovered_2023$total_recovered, "barrels were recovered in 2023, which is only", recovered_2023$pct_recovered, "% of the amount of oil \nthat was originally lost.")
 
 #Creating a new column to calculate what percent of the losses typically gets recovered
 pct_recovered <- oil_loss %>% 
@@ -148,7 +152,7 @@ cat("On average, only", pct_recovered$avg_pct, "% of the lost fracking products 
 
 This section looks at the total number of incidents each company has logged to see which ones are frequently involved in such losses.
 
-```{r}
+```{r, message=FALSE}
 #Totals by year and company
 companies_years <- oil_loss %>% 
   group_by(operator_number, master_year) %>% 
@@ -265,7 +269,7 @@ top_5_producers <- top_5_producers %>%
 
 The five companies with the most barrels lost since 2009 are NFR Energy, Amid Silver Dollar Pipeline, Endeavor Energy Resources, Epic Consolidated Operations, and Anadarko E&P Onshore. Anadarko E&P and Endeavor Energy are at the top of the list because they have been consistently losing a substantial amount of oil each year, whereas the other three are at the top because of one or two years where they lost a lot all at once. For example, Epic Consolidated only has logged incidents for 2019, but they lost 12,984 barrels in one year. Part of the reason these three have less yearly information is because they did not exist for the full time period. Amid Silver Dollar was incorporated in 2013, Epic Consolidated Operations was incorporated in 2017, and NFR Energy does not seem to have been active in over ten years.
 
-```{r}
+```{r, message=FALSE}
 top_5_losses <- oil_loss %>% 
   filter(operator_number=="NFR ENERGY, LLC"|operator_number=="AMID SILVER DOLLAR PIPELINE LLC"|operator_number=="ENDEAVOR ENERGY RESOURCES L.P."|operator_number=="EPIC CONSOLIDATED OPS, LLC"|operator_number=="ANADARKO E&P ONSHORE LLC") %>%
   group_by(operator_number, master_year) %>% 
@@ -275,11 +279,30 @@ top_5_losses <- top_5_losses %>%
   pivot_wider(names_from=operator_number, values_from=total_lost)
  
 top_5_losses <- top_5_losses %>% 
-  arrange(master_year)
+  arrange(master_year) %>% 
+  clean_names()
+
+top_5_losses[is.na(top_5_losses)] <- 0
 
 top_5_losses %>%
-  kable(format = "html") %>%
-  kable_styling("striped")
+  gt() %>% 
+  cols_label(master_year = "Year",
+             amid_silver_dollar_pipeline_llc = "Amid Silver Dollar Pipeline LLC",
+             anadarko_e_p_onshore_llc = "Anadarko E&P Onshore LLC",
+             endeavor_energy_resources_l_p = "Endeavor Energy Resources LP",
+             epic_consolidated_ops_llc = "EPIC Consolidated Operations LLC",
+             nfr_energy_llc = "NFR Energy LLC") %>% 
+  tab_header(title = "Total Reported Oil Loss Incidents Per Company") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
 ```
 
 ### Question: Why does Pioneer Natural Resources have so many incidents?
@@ -287,15 +310,48 @@ top_5_losses %>%
 One interesting discovery I made is that Pioneer Natural Resources, which is part of Exxon Mobil, has had 567 recorded instances of oil loss due to equipment failure. Despite this, only 5 of the 769 incidents had "installed new equipment" or "repaired existing equipment" in the remedy column.
 
 ```{r}
-oil_loss %>% 
+pioneer <- oil_loss %>%
+  filter(operator_number=="PIONEER NATURAL RES. USA, INC.") %>% 
+  group_by(causeof_loss) %>% 
+  summarize(total=n()) %>% 
+  arrange(desc(total))
+
+pioneer %>%
+  gt() %>% 
+  cols_label(causeof_loss = "Cause of Loss",
+             total = "Total Incidents") %>% 
+  tab_header(title = "Frequency of Incident Types Within Pioneer Natural Resources") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
+
+pioneer_remedy <- oil_loss %>% 
   filter(operator_number=="PIONEER NATURAL RES. USA, INC.") %>% 
   group_by(remedy) %>% 
   summarize(total=n())
 
-oil_loss %>%
-  filter(operator_number=="PIONEER NATURAL RES. USA, INC.") %>% 
-  group_by(causeof_loss) %>% 
-  summarize(total=n())
+pioneer_remedy %>%
+  gt() %>% 
+  cols_label(remedy = "Remedial Measure Type",
+             total = "Total") %>% 
+  tab_header(title = "Frequency of Remedial Measure Types Within Pioneer Natural Resources") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
 ```
 
 ## Part 3: The Affected Counties
@@ -319,32 +375,52 @@ counties <- oil_loss %>%
   summarize(net_lost = sum(net_loss, na.rm=TRUE)) %>% 
   arrange(desc(net_lost))
 
-head(counties)
+counties %>%
+  head(10) %>% 
+  gt() %>% 
+  cols_label(county = "County",
+             net_lost = "Net Loss (bbl)") %>% 
+  tab_header(title = "Net Loss of Fracking Products Per County") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
 
 #write_csv(counties, "texas_counties.csv")
 
 #Total incidents per county
-oil_loss %>% 
+county_incidents <- oil_loss %>% 
   group_by(county) %>% 
   summarize(total_incidents = n()) %>%
   arrange(desc(total_incidents))
 
-#Looking at Midland County since they had the most total incidents
-oil_loss %>% 
-  filter(county=="MIDLAND") %>% 
-  group_by(master_year) %>% 
-  summarize(net_lost = sum(net_loss, na.rm=TRUE))
-
-#Looking at Crockett County since they lost the most total barrels
-oil_loss %>% 
-  filter(county=="CROCKETT") %>% 
-  group_by(master_year) %>% 
-  summarize(net_lost = sum(net_loss, na.rm=TRUE))
+county_incidents %>% 
+  head(10) %>% 
+  gt() %>% 
+  cols_label(county = "County",
+             total_incidents = "Total Incidents") %>% 
+  tab_header(title = "Total Reported Incidents Per County") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
 ```
 
 ## Part 4: Causes of Loss
 
-Another point of interest in this data is the column that specifies the cause of loss, particularly when looked at in combination with the column specifying what remedial measures were taken. Equipment failure is by far the leading cause of these losses at 8,706, with corrosion from rust the runner-up at 1,879. Even so, there are only 522 instances where the remedy column mentions equipment repair.
+Another point of interest in this data is the column that specifies the cause of loss, particularly when looked at in combination with the column specifying what remedial measures were taken. Equipment failure is by far the leading cause of these losses at 8,706, with corrosion from rust the runner-up at 1,879. Even so, there is only a small fraction where the remedy column mentions equipment repair.
 
 <iframe src='https://flo.uri.sh/visualisation/18288062/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/18288062/?utm_source=embed&utm_campaign=visualisation/18288062' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
 
@@ -355,6 +431,22 @@ causes_breakdown <- oil_loss %>%
   summarize(total=n()) %>% 
   arrange(desc(total))
 
+causes_breakdown %>% 
+  gt() %>% 
+  cols_label(causeof_loss = "Cause of Loss",
+             total = "Total Incidents") %>% 
+  tab_header(title = "Total Incidents Per Cause of Loss") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
+
 #write_csv(causes_breakdown, "causes_of_loss.csv")
 
 #Looking specifically at how many incidents per year were caused by equipment failure (included corrosion in this)
@@ -364,11 +456,27 @@ equip_failures <- oil_loss %>%
   group_by(master_year) %>% 
   summarize(total = n())
 
-head(equip_failures)
+equip_failures %>% 
+  gt() %>% 
+  cols_label(master_year = "Year",
+             total = "Total Incidents") %>% 
+  tab_header(title = "Total Equipment Failure Incidents Per Year") %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_title(groups = "title")) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels())
  
 #Total number of incidents caused by equipment failure that cited repairing the equipment as their remedial measure
-oil_loss %>% 
+equip_remedies <- oil_loss %>% 
   filter(causeof_loss=="Equipment Failure"|causeof_loss=="Corrosion - Rust") %>% 
   filter(remedy=="Repaired Existing Equipment") %>% 
   count()
+
+cat(equip_remedies$n, "of the incidents caused by equipment failure or corrosion cited equipment \nrepair as a remedy.")
 ```
