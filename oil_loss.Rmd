@@ -21,7 +21,11 @@ output:
 
 Every year, oil companies in Texas lose thousands of barrels of liquid hydrocarbon (crude oil and gas well liquid) while fracking, amounting to a recorded total of 24,489,864 gallons lost since 2009 --- enough oil to fill 37 Olympic swimming pools. The companies are required to [fill out a form known as an H-8](https://www.rrc.texas.gov/media/fscnvxwt/h-8f.pdf) and submit it to the Railroad Commission of Texas each time such an event occurs, but this information leaves room for plenty of questions regarding the effects and frequency of such events.
 
+<br>
+
 <iframe title="Crockett County and Harrison County most affected by Texas oil company barrel losses" aria-label="Map" id="datawrapper-chart-ogAF0" src="https://datawrapper.dwcdn.net/ogAF0/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="826" data-external="1"></iframe>
+
+<br>
 
 The number of barrels lost has been on a steady decline since 2017 with 6,130 barrels lost in 2023, but this does not make these losses any less significant considering only 3,729 (about 60%) of these barrels were recovered. Of the 10,585 cases where equipment failure or corrosion was cited as the cause of the incident, only 522 mentioned mentioned equipment repair as their remedial measures taken. This points to widespread issues with the existing fracking equipment, which creates even more opportunity for such losses to occur.
 
@@ -53,7 +57,7 @@ oil_loss <- read_excel("combined_h8.xlsx") %>%
 
 ### Net Loss
 
-The net loss is calculated for each company by subtracting the number of recovered barrels from the provided gross loss figure. This code provides a quick annual overview of net loss.
+The net loss is calculated for each company by subtracting the number of recovered barrels from the provided gross loss figure.
 
 ```{r}
 #There are 42 gallons in a barrel, so let's convert to gallons to get some perspective:
@@ -185,8 +189,6 @@ companies %>%
 
 ### Finding the net loss of barrels for all incidents per company
 
-This section looks at the number of barrels lost from all incidents per company.
-
 ```{r}
 #Net loss per company
 net_loss <- oil_loss %>% 
@@ -307,7 +309,7 @@ top_5_losses %>%
 
 ### Question: Why does Pioneer Natural Resources have so many incidents?
 
-One interesting discovery I made is that Pioneer Natural Resources, which is part of Exxon Mobil, has had 567 recorded instances of oil loss due to equipment failure. Despite this, only 5 of the 769 incidents had "installed new equipment" or "repaired existing equipment" in the remedy column.
+One interesting discovery I made is that Pioneer Natural Resources, which is part of Exxon Mobil and is at the top of the list for most total incidents, has had 567 recorded instances of oil loss due to equipment failure. Despite this, only 5 of the 769 incidents had "installed new equipment" or "repaired existing equipment" in the remedy column.
 
 ```{r}
 pioneer <- oil_loss %>%
